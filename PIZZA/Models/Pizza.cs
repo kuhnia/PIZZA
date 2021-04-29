@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace PIZZA.Models
 {
-    public class Piza
+    public class Pizza
     {
     }
 }

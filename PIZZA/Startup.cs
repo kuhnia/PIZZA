@@ -8,11 +8,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.SqlServer;
 
 namespace PIZZA
 {
     public class Startup
     {
+
+        private IConfigurationRoot _databaseConfig;
+
+        public Startup(IWebHostEnvironment hostEnv)
+        {
+            _databaseConfig = new ConfigurationBuilder().SetBasePath(hostEnv.ContentRootPath).AddJsonFile("DB_Setting.json").Build();
+        }
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -24,6 +34,7 @@ namespace PIZZA
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<AppContent>(options => options.UseSqlServer(_databaseConfig.GetConnectionString("DefaultConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
