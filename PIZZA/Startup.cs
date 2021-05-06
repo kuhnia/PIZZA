@@ -16,13 +16,6 @@ namespace PIZZA
     public class Startup
     {
 
-        private IConfigurationRoot _databaseConfig;
-
-        public Startup(IWebHostEnvironment hostEnv)
-        {
-            _databaseConfig = new ConfigurationBuilder().SetBasePath(hostEnv.ContentRootPath).AddJsonFile("DB_Setting.json").Build();
-        }
-
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -33,8 +26,12 @@ namespace PIZZA
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // получаем строку подключения из файла конфигурации
+            string connection = Configuration.GetConnectionString("DefaultConnection");
+            // добавляем контекст MobileContext в качестве сервиса в приложение
+            services.AddDbContext<ApplicationContext>(options =>
+                options.UseSqlServer(connection));
             services.AddControllersWithViews();
-            services.AddDbContext<AppContent>(options => options.UseSqlServer(_databaseConfig.GetConnectionString("DefaultConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
