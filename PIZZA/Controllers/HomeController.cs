@@ -28,6 +28,26 @@ namespace PIZZA.Controllers
             return View();
         }
 
+        public IActionResult Desserts()
+        {
+            return View();
+        }
+
+        public IActionResult Potables()
+        {
+            return View();
+        }
+
+        public IActionResult Sushi()
+        {
+            return View();
+        }
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -1,0 +1,70 @@
+﻿
+.to-up {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    display: none;
+    z-index: 22;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 32px;
+}
+.basket {
+    width:120px;
+    height:120px;
+    position: fixed;
+    top: 53px;
+    right: 28px;
+    z-index: 22;
+    padding: 15px 32px;
+}
+/*@media (max-width:1200px) {
+    .container {
+        max-width: 970px;
+    }
+}
+
+@media (max-width:992px) {
+    .container {
+        max-width: 750px;
+    }
+}
+@media (max-width:767px) {
+    .container {
+        max-width: none;
+    }
+}*/
+
+.preload {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 2;
+    transition: 1s all;
+    opacity: 1;
+    visibility: visible;
+
+    .loader {
+        width: 70%;
+        height: 76%;
+        background-image: url('../image/ImgLoading.jpg');
+        position:absolute;
+        left:20%;
+        top:10%;
+    }
+
+    &.done
+    {
+        opacity:0;
+        visibility:hidden;
+    }
+}
+
+
+
+@import '_pizzaStyle.scss';
+@import '_log.scss';
