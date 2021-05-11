@@ -12,15 +12,6 @@
     color: white;
     padding: 15px 32px;
 }
-.basket {
-    width:120px;
-    height:80px;
-    position: fixed;
-    top: 53px;
-    right: 28px;
-    z-index: 22;
-    padding: 15px 32px;
-}
 /*@media (max-width:1200px) {
     .container {
         max-width: 970px;
@@ -108,3 +99,4 @@
 
 @import '_pizzaStyle.scss';
 @import '_log.scss';
+@import 'Profil.scss';

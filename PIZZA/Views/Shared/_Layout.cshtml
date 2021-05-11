@@ -31,11 +31,14 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Potables">Напої</a>
                         </li>
-                        <li class="nav-item">
+                        @*<li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Desserts">Закуски до алкоголю</a>
-                        </li>
+                        </li>*@
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Login">Увійти</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="User" asp-action="Accaunt">Акаунт</a>
                         </li>
                     </ul>
                 </div>
@@ -43,13 +46,12 @@
         </nav>
     </header>
 
-    <div id="page_preloader" class="preload">
+    @*<div id="page_preloader" class="preload">
         <div class="loader"></div>
-    </div>
+    </div>*@
   
     <div class="container">
         <main role="main" class="pb-3">
-            <img src="~/image/bascet.png" class="basket" />
             <div class="to-up">Наверх</div>
             @RenderBody()
         </main>
