@@ -11,8 +11,8 @@ namespace PIZZA.ViewModels
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "Неправильний пароль")]
-        public string ConfirmPassword { get; set; }
+        [Required(ErrorMessage = "Не вказано номер телефону")]
+        [DataType(DataType.PhoneNumber)]
+        public string PhoneNumber { get; set; }
     }
 }

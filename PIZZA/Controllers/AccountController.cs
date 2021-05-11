@@ -107,7 +107,7 @@ namespace AuthApp.Controllers
                 User user = await db.User.FirstOrDefaultAsync(u => u.Email == model.Email);
                 if (user == null)
                 {
-                    db.User.Add(new User { Email = model.Email, Password = HashPassword(model.Password) });
+                    db.User.Add(new User { Email = model.Email, Password = model.Password });
                     await db.SaveChangesAsync();
 
                     await Authenticate(model.Email); // аутентификация
