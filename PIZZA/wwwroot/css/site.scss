@@ -1,4 +1,6 @@
-﻿
+﻿html{
+  /*  overflow-y: hidden;*/
+}
 .to-up {
     position: fixed;
     bottom: 28px;
@@ -12,7 +14,7 @@
 }
 .basket {
     width:120px;
-    height:120px;
+    height:80px;
     position: fixed;
     top: 53px;
     right: 28px;
@@ -42,25 +44,63 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: black;
     z-index: 2;
+    background-color: #cab014;
     transition: 1s all;
     opacity: 1;
     visibility: visible;
 
     .loader {
-        width: 70%;
-        height: 76%;
-        background-image: url('../image/ImgLoading.jpg');
-        position:absolute;
-        left:20%;
-        top:10%;
+        width: 100px;
+        height: 100px;
+        margin: 50px auto 0;
+        margin-top:25%;
+        perspective: 200px;
+        position: relative;
     }
 
-    &.done
-    {
-        opacity:0;
-        visibility:hidden;
+    .loader:before,
+    .loader:after {
+        content: '';
+        background: #5f27cd;
+        height: 50px;
+        width: 50px;
+        transform-origin: right bottom;
+        position: absolute;
+        top: 0;
+        animation: flip 2s linear infinite;
+    }
+
+    .loader:after {
+        opacity: 0.5;
+        animation-delay: 1s;
+    }
+
+    @keyframes flip {
+        0% {
+            transform: rotateX(0) rotateY(0);
+        }
+
+        25% {
+            transform: rotateX(0) rotateY(180deg);
+        }
+
+        50% {
+            transform: rotateX(180deg) rotateY(180deg);
+        }
+
+        75% {
+            transform: rotateX(180deg) rotateY(0);
+        }
+
+        100% {
+            transform: rotateX(0) rotateY(0);
+        }
+    }
+
+    &.done {
+        opacity: 0;
+        visibility: hidden;
     }
 }
 
