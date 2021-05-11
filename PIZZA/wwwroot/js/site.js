@@ -14,14 +14,12 @@ jQuery(($) => {
     });
 });
 
-document.body.onload = function () {
-    setTimeout(function () {
-        var preloader = document.getElementById('page_preloader');
-        if (!preloader.classList.contains('done')) {
-            preloader.classList.add('done');
-        }
-    }, 5000);
-}
+
+$(window).on("load", function () {
+    $(".preload").fadeOut(1000);
+});
+
+
 
 
 

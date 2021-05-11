@@ -48,13 +48,13 @@ namespace PIZZA.Controllers
         }
 
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            db.User.Add(user);
-            await db.SaveChangesAsync();
-            return RedirectToAction("Index");
-        }
+        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        //public IActionResult Error()
+        //{
+        //    db.User.Add(user);
+        //    await db.SaveChangesAsync();
+        //    return RedirectToAction("Index");
+        //}
 
         //private readonly ILogger<HomeController> _logger;
 

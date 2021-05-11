@@ -1,99 +1,98 @@
 ﻿.PizzaBlok {
     margin-top: 10%;
-    border-radius: 8%;
+    border-radius: 15px;
     width: 100%;
-    height: 330px;
+    min-height: 330px;
     box-shadow: 0 0 5px 2px #A4A4A4;
-}
+    padding: 0.5em;
+
+    &:hover {
+        box-shadow: 0 0 7px 7px #A4A4A4;
+        transition-duration: 1s;
+    }
+
+    .imgPizza {
+        overflow: hidden;
+        height: 200px;
+        border-radius: 20px;
+        width: 100%;
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
 
 
-.PizzaBlok:hover {
-    box-shadow: 0 0 7px 7px #A4A4A4;
-    transition-duration: 1s;
-}
+        .blokPizza {
+            width: 100%;
+            height: 100%;
+            color: white;
+            text-align: center;
+            opacity: 0;
+            background-color: red;
+            z-index: 6;
 
-h4 {
-    margin-top: 8%;
-    margin-bottom: 2%;
-    text-align: center;
-    font-style: italic;
-}
+            &:hover {
+                transition: 2s;
+                opacity: 1;
+            }
+        }
+    }
 
-.imgPizza {
-    height: 180px;
-    border-radius: 8%;
-    max-width: 93%;
-    margin: 4%;
-    background-size: cover;
-}
+    .text {
+        font-size: 13px;
+        margin-left: 5%;
+        font-style: italic;
+    }
 
-b {
-    max-block-size: 17px;
-    margin-left: 3%;
-}
+    .price {
+        text-align: left;
+        margin-left: 2%;
+    }
 
-.text {
-    font-size: 13px;
-    margin-left: 5%;
-    font-style: italic;
-}
+    b {
+        max-block-size: 17px;
+        margin-left: 3%;
+    }
 
-.price {
-    text-align: left;
-    margin-left: 2%;
-}
+    .button-1 {
+        color: #232323;
+        background: transparent;
+        border: 1px solid #232323;
+        position: relative;
+        font-size: 12px;
+        letter-spacing: .3em;
+        font-style: italic;
+        width: 50%;
+        padding: 0.9em;
+        transition: .2s ease-in-out;
+        cursor: pointer;
+        margin-left: 30%;
+        margin-bottom: 5%;
+    }
 
-.button-1 {
-    color: #232323;
-    background: transparent;
-    border: 1px solid #232323;
-    position: relative;
-    font-size: 12px;
-    letter-spacing: .3em;
-    font-style: italic;
-    width: 50%;
-    height: 15%;
-    transition: .2s ease-in-out;
-    cursor: pointer;
-    margin-left: 30%;
-    margin-bottom: 5%;
-}
+    .button-1:before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        width: 100%;
+        height: 100%;
+        background: #FFC300;
+        z-index: -1;
+        transition: .25s ease;
+        transform: translate(0, 0);
+    }
 
-.button-1:before {
-    content: "";
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    width: 100%;
-    height: 100%;
-    background: #FFC300;
-    z-index: -1;
-    transition: .25s ease;
-    transform: translate(0, 0);
+    .button-1:hover:before {
+        transform: translate(4px, 4px);
+    }
 }
+   h4 {
+        padding-top: 20px;
+        text-align: center;
+        font-style: italic;
+    }
 
-.button-1:hover:before {
-    transform: translate(4px, 4px);
-}
 
-.blokPizza {
-    position: absolute;
-    border-radius: 8%;
-    width: 85%;
-    height: 51%;
-    bottom: 37%;
-    margin: 2%;
-    color: white;
-    text-align: center;
-    padding-top: 2%;
-    opacity: 0;
-    background-color: red;
-}
-
-.blokPizza:hover {
-    transition: 2s;
-    opacity: 1;
-}
 
 .pizzaDesigner {
     background-color: #324e32;
@@ -112,6 +111,27 @@ b {
     height: 240px;
     text-align: center;
     box-shadow: 0 0 5px 2px #A4A4A4;
+    padding: 0.5em;
+
+    .DesignerImage {
+        overflow: hidden;
+        height: 90px;
+        border-radius: 20px;
+        width: 80%;
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+    }
+
+    .buttonDesignerr {
+        width: 80%;
+        padding: 4%;
+        font-size: 13px;
+        margin-top: 5%;
+        border-radius: 8%;
+        color: white;
+        background-color: black;
+    }
 }
 
 .AddInfo {
@@ -120,41 +140,3 @@ b {
     background-color: gray;
     color: white;
 }
-
-.DesignerImage {
-    position: relative;
-    max-height: 80px;
-    border-radius: 8%;
-    max-width: 53%;
-    margin-top: 8%;
-    margin-bottom: 3%;
-}
-
-.buttonDesignerr {
-    width: 80%;
-    padding: 4%;
-    font-size: 13px;
-    margin-top: 5%;
-    border-radius: 8%;
-    color: white;
-    background-color: black;
-}
-
-@media (max-width:1200px) {
-    .PizzaBlok {
-        max-height: 270px;
-    }
-
-    b {
-        font-size: 14px;
-    }
-    .imgPizza {
-        height: 48%;
-    }
-    .blokPizza {
-        font-size: 13px;
-        height: 48%;
-        bottom: 42%;
-    }
-}
-
