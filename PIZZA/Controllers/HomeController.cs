@@ -25,7 +25,7 @@ namespace PIZZA.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View(await db.User.ToListAsync());
+            return View(/*await db.User.ToListAsync()*/);
         }
         public IActionResult Create()
         {
