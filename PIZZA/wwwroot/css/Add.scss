@@ -1,0 +1,52 @@
+﻿.contentBox {
+    width: 40%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin-left: 35%;
+    background-color: #FEF9E7;
+    margin-bottom: 2%;
+}
+
+label {
+    margin-left: 35%;
+}
+
+.button {
+    background-color: #D4AC0D;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    margin-left: 40%;
+}
+
+.button:hover {
+    opacity: 0.8;
+}
+
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+.block {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+#blok1 {
+    position: relative;
+    text-align: center;
+    padding: 1.5%;
+    width: 20%;
+    height: 10%;
+    left: 42%;
+}

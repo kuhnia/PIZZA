@@ -1,0 +1,32 @@
+﻿.blokRemoval {
+    background: #fbc02d;
+    color: #fff;
+    font-style: italic;
+    padding: 20px 20px;
+    border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    font-size: 16px;
+    font-weight: 300;
+    margin: 3%;
+
+    .BasketImgTovar {
+        width: 15%;
+        border-radius: 4px 4px 0 0;
+    }
+
+    .textBasket {
+        color: white;
+        margin-left: 10%;
+    }
+
+    .DeleteBatton {
+        width: 20%;
+        margin-left: 20%;
+        background-color: #885BA7;
+        color: white;
+        padding: 4px 4px;
+      /*  -webkit-box-shadow: 7px 12px 31px 22px rgba(93, 46, 126, 0.26);
+        -moz-box-shadow: 7px 12px 31px 22px rgba(93, 46, 126, 0.26);
+        box-shadow: 7px 12px 31px 22px rgba(93, 46, 126, 0.26);*/
+    }
+}

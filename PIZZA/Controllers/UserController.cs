@@ -16,5 +16,23 @@ namespace PIZZA.Controllers
         {
             return View();
         }
+        public IActionResult AddPizza()
+        {
+            return View();
+        }
+        public IActionResult AddSushi()
+        {
+            return View();
+        }
+
+        public IActionResult AddDrinks()
+        {
+            return View();
+        }
+        public IActionResult DeletePizza()
+        {
+            return View();
+        }
+
     }
 }
