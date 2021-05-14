@@ -25,13 +25,17 @@
             <input class="contentBox" type="text" name="Fname">
             <br />
             <label><b>Зображення</b></label><br />
-            <input class="contentBox" type="text" name="Lname">
+            <div class="fileform">
+                <div id="fileformlabel"></div>
+                <div class="selectbutton">Обзор</div>
+                <input type="file" name="upload" id="upload" onchange="getName(this.value);" />
+            </div>
             <br />
             <label><b>Опис</b></label><br />
             <input class="contentBox" type="text" name="Sname">
             <br />
             <label><b>Ціна</b></label><br />
-            <input  class="contentBox" type="text" name="Position">
+            <input class="contentBox" type="text" name="Position">
             <br />
             <label><b>Категорія</b></label><br />
             <select class="contentBox" id="cars" name="kategory" form="carform">
@@ -39,7 +43,7 @@
                 <option value="rol">Роли</option>
             </select>
             <br />
-           
+
             <button class="button" type="submit">Добавити</button>
         </div>
 

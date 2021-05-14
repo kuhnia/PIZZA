@@ -33,6 +33,27 @@ namespace PIZZA.Controllers
         {
             return View();
         }
+        public IActionResult DeleteSushi()
+        {
+            return View();
+        }
+        
+        public IActionResult DeleteDrinks()
+        {
+            return View();
+        }
 
+        public IActionResult EditPizza()
+        {
+            return View();
+        }
+        public IActionResult EditSushi()
+        {
+            return View();
+        }
+        public IActionResult EditDrinks()
+        {
+            return View();
+        }
     }
 }
