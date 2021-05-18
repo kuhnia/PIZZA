@@ -8,6 +8,12 @@ namespace PIZZA.Controllers
 {
     public class UserController : Controller
     {
+        private ApplicationContext db;
+        public UserController(ApplicationContext context)
+        {
+            db = context;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -16,6 +22,11 @@ namespace PIZZA.Controllers
         {
             return View();
         }
+        public IActionResult AddPizza()
+        {
+            return View();
+        }
+        
         public IActionResult AddPizza()
         {
             return View();
