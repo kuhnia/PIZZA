@@ -1,4 +1,6 @@
-﻿@{ ViewData["Title"] = "Home Page"; }
+﻿@model List<Pizza>
+
+@{ ViewData["Title"] = "Home Page"; }
 
 @*asp-controller="Home" asp-action="Index"*@
 
@@ -13,7 +15,21 @@
 </div>
 <h4>Піцци: Класичні</h4>
 <div class="row">
-
+    @foreach(Pizza pizza in Model){
+        <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
+            <div class="PizzaBlok">
+                <div class="imgPizza" style=" background: url('https://i.pinimg.com/564x/e8/b0/47/e8b047d578b7125da9a99d10cbf3b895.jpg');">
+                    <div class="blokPizza">
+                        <b> Склад: </b><br />
+                        <p>Олія оливкова, ананас, шинка, петрушка, соус томатний, сир моцарела, кукурудза, куряче філе 360г</p>
+                    </div>
+                </div>
+                <b>@pizza.Name</b>
+                <p class="price">@pizza.Price.ToString()</p>
+                <button class="button-1">В корзину</button>
+            </div>
+        </div>
+    }
     <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
         <div class="PizzaBlok">
             <div class="imgPizza" style=" background: url('https://i.pinimg.com/564x/e8/b0/47/e8b047d578b7125da9a99d10cbf3b895.jpg');">
