@@ -27,10 +27,6 @@ namespace PIZZA.Controllers
             return View();
         }
         
-        public IActionResult AddPizza()
-        {
-            return View();
-        }
         public IActionResult AddSushi()
         {
             return View();
@@ -63,6 +59,10 @@ namespace PIZZA.Controllers
             return View();
         }
         public IActionResult EditDrinks()
+        {
+            return View();
+        }
+        public IActionResult PizzaDesigner()
         {
             return View();
         }

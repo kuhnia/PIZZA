@@ -6,6 +6,7 @@
     box-shadow: 0 0 5px 2px #A4A4A4;
     padding: 0.5em;
 
+
     &:hover {
         box-shadow: 0 0 7px 7px #A4A4A4;
         transition-duration: 1s;
@@ -141,13 +142,10 @@
     background-color: gray;
     color: white;
 }
-.LoadMore
-{
-    padding: 1rem 2rem;
-    margin:auto;
+.LoadMore {
+    padding: 2rem 4rem;
+    margin-left: 40%;
     margin-top: 20px;
-    border-radius:0;
-   &:hover {
-       background-color:black;
-   }
+    border-radius: 0;
+   
 }
