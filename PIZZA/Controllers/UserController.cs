@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PIZZA.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PIZZA.Models;
+using System.Text;
 
 namespace PIZZA.Controllers
 {
@@ -26,10 +29,15 @@ namespace PIZZA.Controllers
         {
             return View();
         }
-        
-        public IActionResult AddPizza()
+
+        [HttpPost]
+        public async Task<IActionResult> AddPizza(AddPizzaModel model)
         {
-            return View();
+                db.Pizza.Add(new Pizza { Name = model.Name, Img = Encoding.ASCII.GetBytes(model.Img), Description = model.Description, Price = model.Price, Category = model.Category, Weigth = model.Weight });
+                    await db.SaveChangesAsync();
+
+                    return RedirectToAction("Index", "Home");
+            return View(model);
         }
         public IActionResult AddSushi()
         {
@@ -40,6 +48,17 @@ namespace PIZZA.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> AddDrinks(AddDrinksModel model)
+        {
+            db.Drink.Add(new Drink { Name = model.Name, Img = model.Img, Price = model.Price, Category = model.Category});
+            await db.SaveChangesAsync();
+
+            return RedirectToAction("Index", "Home");
+            return View(model);
+        }
+
         public IActionResult DeletePizza()
         {
             return View();
