@@ -3,7 +3,7 @@ using System.IO;
 
 namespace PIZZA.ViewModels
 {
-    public class AddPizzaModel
+    public class AddDrinksModel
     {
         [Required(ErrorMessage = "Не вказано Назву")]
         public string Name { get; set; }
@@ -12,20 +12,12 @@ namespace PIZZA.ViewModels
         [DataType(DataType.Upload)]
         public string Img { get; set; }
 
-        [Required(ErrorMessage = "Додайте опис")]
-        [DataType(DataType.Text)]
-        public string Description { get; set; }
-
-        [Required(ErrorMessage = "Виберіть категорію")]
-        [DataType(DataType.Text)]
-        public string Category { get; set; } 
-
         [Required(ErrorMessage = "Вкажіть ціну")]
         [DataType(DataType.Text)]
         public double Price { get; set; }
 
-        [Required(ErrorMessage = "Вкажіть вагу")]
+        [Required(ErrorMessage = "Виберіть категорію")]
         [DataType(DataType.Text)]
-        public double Weight { get; set; }
+        public string Category { get; set; }
     }
 }

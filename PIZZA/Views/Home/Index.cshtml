@@ -17,12 +17,16 @@
 <div class="row" id="row01">
 
     @foreach(Pizza pizza in Model){
+        @if(pizza.Category != "klasic")
+        {
+            continue;
+        }
         <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
             <div class="PizzaBlok">
                 <div class="imgPizza" style=" background: url('https://i.pinimg.com/564x/e8/b0/47/e8b047d578b7125da9a99d10cbf3b895.jpg');">
                     <div class="blokPizza">
                         <b> Склад: </b><br />
-                        <p>Олія оливкова, ананас, шинка, петрушка, соус томатний, сир моцарела, кукурудза, куряче філе 360г</p>
+                        <p>@pizza.Description</p>
                     </div>
                 </div>
                 <b>@pizza.Name</b>
@@ -98,20 +102,26 @@
 
 
 <h4>Піцци: Фірмові</h4>
-<div class="row" id="row02">
+<div class="row">
+    @foreach(Pizza pizza in Model){
+    @if (pizza.Category != "branded")
+    {
+        continue;
+    }
     <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
         <div class="PizzaBlok">
-            <div class="imgPizza" style=" background: url('https://life.bodo.ua/upload/ckfinder/images/%D0%B2%D0%B5%D1%80%D0%BE%D0%BD%D0%B0.jpg')">
+            <div class="imgPizza" style=" background: url('https://i.pinimg.com/564x/e8/b0/47/e8b047d578b7125da9a99d10cbf3b895.jpg');">
                 <div class="blokPizza">
                     <b> Склад: </b><br />
-                    Оливки, Цибуля, Болгарський перець, Гриби, Моцарела, Помідори, Соус Domino's, баклажан 405г
+                    <p>@pizza.Description</p>
                 </div>
             </div>
-            <b>Піца Овочева Феєрія</b>
-            <p class="price">156.99грн</p>
-            <button class="button-1">В кошик</button>
+            <b>@pizza.Name</b>
+            <p class="price">@pizza.Price.ToString()</p>
+            <button class="button-1">В корзину</button>
         </div>
     </div>
+    }
 
     <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
         <div class="PizzaBlok">
@@ -163,130 +173,139 @@
 </div>
 
 <h4>Піцци: з морепродуктами</h4>
-<div class="row" id="row03">
+<div class="row">
+    @foreach (Pizza pizza in Model)
+    {
+        @if (pizza.Category != "withSea")
+        {
+            continue;
+        }
     <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
         <div class="PizzaBlok">
-            <div class="imgPizza" style=" background: url('https://lasoon.net/photo/id_214099.jpg')">
+            <div class="imgPizza" style=" background: url('https://i.pinimg.com/564x/e8/b0/47/e8b047d578b7125da9a99d10cbf3b895.jpg');">
                 <div class="blokPizza">
                     <b> Склад: </b><br />
-                    томаты, сыр моцарелла, соус бешамель, мидии, лимон, креветки 290г
+                    <p>@pizza.Description</p>
                 </div>
             </div>
-            <b>Піца з морепродуктами</b>
-            <p class="price">122грн</p>
+            <b>@pizza.Name</b>
+            <p class="price">@pizza.Price.ToString()</p>
             <button class="button-1">В корзину</button>
         </div>
     </div>
+    }
 
-    <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
-        <div class="PizzaBlok">
-            <div class="imgPizza" style=" background: url('https://samete.in.ua/image/cache/catalog/001-pizza/013-losos-850x567.jpg')">
-                <div class="blokPizza">
-                    <b> Склад: </b><br />
-                    Крем сир , цибуля зелена, лосось, сир моцарела, вершки,рукула 455г
+        <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
+            <div class="PizzaBlok">
+                <div class="imgPizza" style=" background: url('https://samete.in.ua/image/cache/catalog/001-pizza/013-losos-850x567.jpg')">
+                    <div class="blokPizza">
+                        <b> Склад: </b><br />
+                        Крем сир , цибуля зелена, лосось, сир моцарела, вершки,рукула 455г
+                    </div>
                 </div>
+                <b>Піца з лососем</b>
+                <p class="price">259грн</p>
+                <button class="button-1">В корзину</button>
             </div>
-            <b>Піца з лососем</b>
-            <p class="price">259грн</p>
-            <button class="button-1">В корзину</button>
         </div>
-    </div>
 
-    <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
-        <div class="PizzaBlok">
-            <div class="imgPizza" style=" background: url('https://media.dominos.ua/menu/product_osg_image_mobile/2020/12/21/%D0%A2%D1%83%D0%BD%D0%B5%D1%86_300dpi-min.jpg')">
-                <div class="blokPizza">
-                    <b> Склад: </b><br />
-                    Моцарела, Соус Domino's, Тунець 354г
+        <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
+            <div class="PizzaBlok">
+                <div class="imgPizza" style=" background: url('https://media.dominos.ua/menu/product_osg_image_mobile/2020/12/21/%D0%A2%D1%83%D0%BD%D0%B5%D1%86_300dpi-min.jpg')">
+                    <div class="blokPizza">
+                        <b> Склад: </b><br />
+                        Моцарела, Соус Domino's, Тунець 354г
+                    </div>
                 </div>
+                <b>Піца з тунцем</b>
+                <p class="price">176грн</p>
+                <button class="button-1">В корзину</button>
             </div>
-            <b>Піца з тунцем</b>
-            <p class="price">176грн</p>
-            <button class="button-1">В корзину</button>
         </div>
-    </div>
 
-    <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
-        <div class="PizzaBlok">
-            <div class="imgPizza" style=" background: url('https://mamaitaliano.com.ua/wp-content/uploads/2019/12/Frutti-di-mare-black.jpg')">
-                <div class="blokPizza">
-                    <b> Склад:</b><br />
-                    сыр «Моцарелла»,креветки, мидии,красный лук,оливки, лимон. 1000г
+        <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
+            <div class="PizzaBlok">
+                <div class="imgPizza" style=" background: url('https://mamaitaliano.com.ua/wp-content/uploads/2019/12/Frutti-di-mare-black.jpg')">
+                    <div class="blokPizza">
+                        <b> Склад:</b><br />
+                        сыр «Моцарелла»,креветки, мидии,красный лук,оливки, лимон. 1000г
+                    </div>
                 </div>
+                <b>Пицца сімейна</b>
+
+                <p class="price">295грн</p>
+                <button class="button-1">В корзину</button>
             </div>
-            <b>Пицца сімейна</b>
-
-            <p class="price">295грн</p>
-            <button class="button-1">В корзину</button>
         </div>
-    </div>
 
-    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 LoadMore">
-        <button type="button" class="btn btn-outline-secondary " id="look3">Дивитись більше</button>
     </div>
 
 </div>
 
 <h4>Піцци: Вегетеріанські</h4>
-<div class="row" id="row04">
+<div class="row">
+    @foreach (Pizza pizza in Model)
+    {
+        @if (pizza.Category != "vegan")
+        {
+            continue;
+        }
     <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
         <div class="PizzaBlok">
-            <div class="imgPizza" style=" background: url('https://rondo-pizza.kiev.ua/wp-content/uploads/2020/12/%D1%94%D0%B2%D1%80%D0%BE%D0%BF%D0%B5%D0%B9%D1%81%D1%8C%D0%BA%D0%B0-1.jpg')">
+            <div class="imgPizza" style=" background: url('https://i.pinimg.com/564x/e8/b0/47/e8b047d578b7125da9a99d10cbf3b895.jpg');">
                 <div class="blokPizza">
                     <b> Склад: </b><br />
-                    Олія оливкова, базилік, печериці, перець болгарський, помідор, соус томатний, спаржева квасоля, сир моцарела, кукурудза 530г
+                    <p>@pizza.Description</p>
                 </div>
             </div>
-            <b>Вегетаріанська</b>
-            <p class="price">189грн</p>
-            <button class="button-1">В кошик</button>
+            <b>@pizza.Name</b>
+            <p class="price">@pizza.Price.ToString()</p>
+            <button class="button-1">В корзину</button>
         </div>
     </div>
+    }
 
-    <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
-        <div class="PizzaBlok">
-            <div class="imgPizza" style=" background: url('https://image.freepik.com/free-photo/vegetarian-pizza-with-tomato-sauce-broccoli-tomatoes-zucchini-eggplant-and-onion-rings-brazilian-pizza_317111-75.jpg')">
-                <div class="blokPizza">
-                    <b> Склад: </b><br />
-                    броколі, перцю, баклажану, перцю болгарського, печериць, цибулі з помідором на червоному соусі. 455г
+        <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
+            <div class="PizzaBlok">
+                <div class="imgPizza" style=" background: url('https://image.freepik.com/free-photo/vegetarian-pizza-with-tomato-sauce-broccoli-tomatoes-zucchini-eggplant-and-onion-rings-brazilian-pizza_317111-75.jpg')">
+                    <div class="blokPizza">
+                        <b> Склад: </b><br />
+                        броколі, перцю, баклажану, перцю болгарського, печериць, цибулі з помідором на червоному соусі. 455г
+                    </div>
                 </div>
+                <b>Піца Фітнес</b>
+                <p class="price">108грн</p>
+                <button class="button-1">В кошик</button>
             </div>
-            <b>Піца Фітнес</b>
-            <p class="price">108грн</p>
-            <button class="button-1">В кошик</button>
         </div>
-    </div>
 
-    <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
-        <div class="PizzaBlok">
-            <div class="imgPizza" style=" background: url('https://life.bodo.ua/upload/ckfinder/images/%D0%B2%D0%B5%D1%80%D0%BE%D0%BD%D0%B0.jpg')">
-                <div class="blokPizza">
-                    <b> Склад: </b><br />
-                    Оливки, Цибуля, Болгарський перець, Гриби, Моцарела, Помідори, Соус Domino's 405г
+        <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
+            <div class="PizzaBlok">
+                <div class="imgPizza" style=" background: url('https://life.bodo.ua/upload/ckfinder/images/%D0%B2%D0%B5%D1%80%D0%BE%D0%BD%D0%B0.jpg')">
+                    <div class="blokPizza">
+                        <b> Склад: </b><br />
+                        Оливки, Цибуля, Болгарський перець, Гриби, Моцарела, Помідори, Соус Domino's 405г
+                    </div>
                 </div>
+                <b>Піца Овочева Феєрія</b>
+                <p class="price">156.99грн</p>
+                <button class="button-1">В кошик</button>
             </div>
-            <b>Піца Овочева Феєрія</b>
-            <p class="price">156.99грн</p>
-            <button class="button-1">В кошик</button>
         </div>
-    </div>
 
-    <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
-        <div class="PizzaBlok">
-            <div class="imgPizza" style=" background: url('https://www.tereveni.com.ua/wp-content/uploads/2015/01/IMG_5990-960x600.jpg')">
-                <div class="blokPizza">
-                    <b> Склад: </b><br />
-                    Печериці з грильованою цибулею, соєвий соус, на вершках. 400г
+        <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
+            <div class="PizzaBlok">
+                <div class="imgPizza" style=" background: url('https://www.tereveni.com.ua/wp-content/uploads/2015/01/IMG_5990-960x600.jpg')">
+                    <div class="blokPizza">
+                        <b> Склад: </b><br />
+                        Печериці з грильованою цибулею, соєвий соус, на вершках. 400г
+                    </div>
                 </div>
+                <b>Піца Грибна бесіда</b>
+                <p class="price">81грн</p>
+                <button class="button-1">В кошик</button>
             </div>
-            <b>Піца Грибна бесіда</b>
-            <p class="price">81грн</p>
-            <button class="button-1">В кошик</button>
         </div>
-    </div>
-
-    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 LoadMore">
-        <button type="button" class="btn btn-outline-secondary " id="look4">Дивитись більше</button>
     </div>
 
 </div>
