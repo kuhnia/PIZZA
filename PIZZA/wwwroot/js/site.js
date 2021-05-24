@@ -32,7 +32,8 @@ function getName(str) {
     uploaded.innerHTML = filename;
 }
 
- var count = 1;
+var count = 1;
+
 $(function () {
 /* $(".DesignerComponent").parents(".row").show();*/
    /* $('#buildyourform > div:eq(' + (i - 1) + ') > input.fieldname').val();*/
@@ -42,30 +43,9 @@ $(function () {
     let b = $(".LoadMore");
     b.show();
 
-    document.getElementById("look").addEventListener("click", myFunction);
-    document.getElementById("look2").addEventListener("click", myFunction01);
-    document.getElementById("look3").addEventListener("click", myFunction02);
-    document.getElementById("look4").addEventListener("click", myFunction03);
-
-    count += 2;
+   
 })
 
-function myFunction() {
-    let f = $('#row01 > :nth-child(' + count + '), #row01 > :nth-child(' + (count + 1) + ')/*, #row01 > :nth-child(' + (count + 2) + '), #row01 > :nth-child(' + (count + 3) + ')*/');
-    f.show();
-}
-function myFunction01() {
-    let f = $('#row02 > :nth-child(' + count + '), #row02 > :nth-child(' + (count + 1) + ')/*, #row02 > :nth-child(' + (count + 2) + '), #row02 > :nth-child(' + (count + 3) + ')*/');
-    f.show();
-}
-function myFunction02() {
-    let f = $('#row03 > :nth-child(' + count + '), #row03 > :nth-child(' + (count + 1) + ')/*, #row03 > :nth-child(' + (count + 2) + '), #row03 > :nth-child(' + (count + 3) + ')*/');
-    f.show();
-}
-function myFunction03() {
-    let f = $('#row > :nth-child(' + count + '), #row > :nth-child(' + (count + 1) + ')/*, #row > :nth-child(' + (count + 2) + '), #row > :nth-child(' + (count + 3) + ')*/');
-    f.show();
-}
 
 
 
