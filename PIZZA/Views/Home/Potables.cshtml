@@ -1,4 +1,6 @@
-﻿@{ ViewData["Title"] = "Potables Page"; }
+﻿@model List<Drink>
+
+@{ ViewData["Title"] = "Potables Page"; }
 
 <div class="fotorama" data-loop="true" data-transition="crossfade" data-autoplay="5000">
     <img src="~/image/slide1.jpg">
@@ -12,16 +14,22 @@
 
 
 <div class="row">
-
+    @foreach (Drink drink in Model)
+    {
+        @if(drink.Category != "not alco")
+        {
+            continue;
+        }
     <div class="col-3 col-sm-10 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
         <div class="PizzaBlok">
 
             <img src="https://producto.com.ua/image/cache/catalog/%D0%B1%D0%BE%D0%BD%D0%B0%D0%BA%D0%B2%D0%B0-200x200.jpg" class="imgPizza">
-            <b>Bonaqua газована</b>
-            <p class="price">25грн - 500мл</p>
-            <button class="button-1">В корзину</button>
+            <b>@drink.Name</b>
+            <p class="price">@drink.Price</p>
+            <button class="button-1" onclick="@*@drink.AddToCast()*@">В корзину</button>
         </div>
     </div>
+    }
 
     <div class="col-3 col-sm-10 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
         <div class="PizzaBlok">
@@ -134,14 +142,22 @@
 
 <div class="row">
 
-    <div class="col-3 col-sm-10 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
-        <div class="PizzaBlok">
-            <img src="https://www.unipack.ru/light_editor_img/images/2018-12-18/file1545056982.jpg" class="imgPizza">
-            <b>Hoegaarden грейфрут сік</b>
-            <p class="price">80грн - 500мл</p>
-            <button class="button-1">В корзину</button>
+    @foreach (Drink drink in Model)
+    {
+        @if (drink.Category != "alco")
+        {
+            continue;
+        }
+        <div class="col-3 col-sm-10 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
+            <div class="PizzaBlok">
+
+                <img src="https://producto.com.ua/image/cache/catalog/%D0%B1%D0%BE%D0%BD%D0%B0%D0%BA%D0%B2%D0%B0-200x200.jpg" class="imgPizza">
+                <b>@drink.Name</b>
+                <p class="price">@drink.Price</p>
+                <button class="button-1">В корзину</button>
+            </div>
         </div>
-    </div>
+    }
 
     <div class="col-3 col-sm-10 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
         <div class="PizzaBlok">

@@ -5,6 +5,7 @@
 @*asp-controller="Home" asp-action="Index"*@
 
 
+@*@{ var userName = User.Identity. }*@
 
 <div class="fotorama" data-width="1500" data-loop="true" data-transition="crossfade" data-autoplay="5000">
     <img src="~/image/slide1.jpg">
@@ -30,9 +31,9 @@
                         <p>@pizza.Description</p>
                     </div>
                 </div>
-                <b>@pizza.Name</b>
-                <p class="price">@pizza.Price.ToString() грн</p>
-                <button class="button-1">В корзину</button>
+                <b></b>
+                <p class="price">@pizza.Price.ToString()</p>
+                <button class="button-1" onclick="AddPizzaToCast(); return false;">В корзину</button>
             </div>
         </div>
     }

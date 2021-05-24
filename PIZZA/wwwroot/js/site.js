@@ -69,6 +69,10 @@ loadData()
 
 
 
+function AddPizzaToCast(id) {
+    $.post("Home/AddPizzaToCast", {num: "10"})
+};
+
 
 
 

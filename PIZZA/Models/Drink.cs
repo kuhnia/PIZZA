@@ -12,5 +12,11 @@ namespace PIZZA.Models
         public string Img { get; set; }
         public double Price { get; set; }
         public string Category { get; set; }
+
+        public void AddToCast()
+        {
+
+        }
+
     }
 }
