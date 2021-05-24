@@ -32,6 +32,10 @@ function getName(str) {
     uploaded.innerHTML = filename;
 }
 
+function AddPizzaToCast(id) {
+    $.post("Home/AddPizzaToCast", {num: "10"})
+};
+
 
 
 

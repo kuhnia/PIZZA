@@ -22,6 +22,14 @@ namespace PIZZA.Controllers
         {
             db = context;
         }
+        
+        public ActionResult AddPizzaToCast(string num)
+        {
+            User.Identity.Name.ToString();
+            //Do Something
+            //db.User.FirstOrDefault.Where(p=>p.Id == User.Identity.Id)
+            return View();
+        }
 
         public async Task<IActionResult> Index()
         {
@@ -37,9 +45,9 @@ namespace PIZZA.Controllers
             return View();
         }
 
-        public IActionResult Potables()
+        public async Task<IActionResult> PotablesAsync()
         {
-            return View();
+            return View(await db.Drink.ToListAsync());
         }
 
         public IActionResult Sushi()

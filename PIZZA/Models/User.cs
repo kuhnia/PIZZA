@@ -12,5 +12,19 @@ namespace PIZZA.Models
         public string Password { set; get; }
         public string PhoneNumber { set; get; }
 
+        public string Cast { set; get; }
+
+        public Cast GetCast()
+        {
+            return Models.Cast.FromJson(Cast);
+        }
+
+        public void SetCast(Models.Cast cast)
+        {
+            Cast = cast.ToJson();
+        }
+
+        //public Cast Cast { get; set; }
+
     }
 }
