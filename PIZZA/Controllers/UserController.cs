@@ -85,5 +85,24 @@ namespace PIZZA.Controllers
         {
             return View();
         }
+        public IActionResult PizzaDesigner()
+        {
+            return View();
+        }
+
+        public IActionResult PageEditPizza()
+        {
+            return View();
+        }
+
+        public IActionResult PageEditSushi()
+        {
+            return View();
+        }
+
+        public IActionResult PageEditDrinks()
+        {
+            return View();
+        }
     }
 }

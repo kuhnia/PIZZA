@@ -15,7 +15,8 @@
     <img src="/image/slide5.jpg">
 </div>
 <h4>Піцци: Класичні</h4>
-<div class="row">
+<div class="row" id="row01">
+
     @foreach (Pizza pizza in Model)
     {
         @if (pizza.Category != "klasic")
@@ -36,6 +37,7 @@
             </div>
         </div>
     }
+
     <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
         <div class="PizzaBlok">
             <div class="imgPizza" style=" background: url('https://i.pinimg.com/564x/e8/b0/47/e8b047d578b7125da9a99d10cbf3b895.jpg');">
@@ -93,12 +95,16 @@
         </div>
     </div>
 
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 LoadMore">
+        <button type="button" class="btn btn-outline-secondary " id="look">Дивитись більше</button>
+    </div>
+
 </div>
 
 
 
 <h4>Піцци: Фірмові</h4>
-<div class="row">
+<div class="row" id="row02">
     @foreach (Pizza pizza in Model)
     {
         @if (pizza.Category != "branded")
@@ -163,10 +169,14 @@
         </div>
     </div>
 
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 LoadMore">
+        <button type="button" class="btn btn-outline-secondary " id="look2">Дивитись більше</button>
+    </div>
+
 </div>
 
 <h4>Піцци: з морепродуктами</h4>
-<div class="row">
+<div class="row" id="row03">
     @foreach (Pizza pizza in Model)
     {
         @if (pizza.Category != "withSea")
@@ -231,16 +241,23 @@
         </div>
     </div>
 
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 LoadMore">
+        <button type="button" class="btn btn-outline-secondary " id="look3">Дивитись більше</button>
+    </div>
+
 </div>
 
+
+
 <h4>Піцци: Вегетеріанські</h4>
-<div class="row">
+<div class="row" id="row04">
     @foreach (Pizza pizza in Model)
     {
         @if (pizza.Category != "vegan")
         {
             continue;
         }
+
         <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
             <div class="PizzaBlok">
                 <div class="imgPizza" style=" background: url('https://i.pinimg.com/564x/e8/b0/47/e8b047d578b7125da9a99d10cbf3b895.jpg');">
@@ -297,198 +314,22 @@
             <button class="button-1">В кошик</button>
         </div>
     </div>
-</div>
 
-<div class="pizzaDesigner">
-    <h3>КОНСТРУКТОР ПІЦИ</h3> Зроби свою ідеальну піцу!
-</div>
-<div class="AddInfo">Корж на піцу + порція сиру включається автоматично ціна: 45грн</div>
-
-
-<div class="row">
-    <div class="col-2 col-sm-4 col-md-3 col-lg-2 col-xl-2 col-xxl-1">
-        <div class="DesignerComponent">
-            <img src="https://pngicon.ru/file/uploads/1303507287_Tomato.png" class="DesignerImage" /><br />
-            <b>Помідори</b><br />
-            50г<br />
-            16 грн<br />
-            <label class="container buttonDesignerr">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-                Додати до піци
-            </label>
-        </div>
-    </div>
-
-    <div class="col-2 col-sm-4 col-md-3 col-lg-2 col-xl-2 col-xxl-1">
-        <div class="DesignerComponent">
-            <img src="https://vip.shuvar.com/images/wares/medium/Pecherytsi-svizhi-_seredni_.png" class="DesignerImage" /><br />
-            <b>Гриби</b><br />
-            50г<br />
-            16 грн<br />
-            <label class="container buttonDesignerr">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-                Додати до піци
-            </label>
-        </div>
-    </div>
-
-    <div class="col-2 col-sm-4 col-md-3 col-lg-2 col-xl-2 col-xxl-1">
-        <div class="DesignerComponent">
-            <img src="http://pngimg.com/uploads/bacon/bacon_PNG10906.png" class="DesignerImage" /><br />
-            <b>Бекон</b><br />
-            50г<br />
-            20 грн<br />
-            <label class="container buttonDesignerr">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-                Додати до піци
-            </label>
-        </div>
-    </div>
-
-    <div class="col-2 col-sm-4 col-md-3 col-lg-2 col-xl-2 col-xxl-1">
-        <div class="DesignerComponent">
-            <img src="https://assets.misteram.com.ua/misteram-public/47f97e31812c574198b60669da36e7d9-400x0.png" class="DesignerImage" /><br />
-            <b>Шинка</b><br />
-            50г<br />
-            22 грн<br />
-            <label class="container buttonDesignerr">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-                Додати до піци
-            </label>
-        </div>
-    </div>
-
-    <div class="col-2 col-sm-4 col-md-3 col-lg-2 col-xl-2 col-xxl-1">
-        <div class="DesignerComponent">
-            <img src="https://img1.freepng.ru/20171221/igw/lemon-transparent-5a3c3393d47e64.1235054215138948038704.jpg" class="DesignerImage" /><br />
-            <b>Лимон</b><br />
-            50г<br />
-            14 грн<br />
-            <label class="container buttonDesignerr">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-                Додати до піци
-            </label>
-        </div>
-    </div>
-
-    <div class="col-2 col-sm-4 col-md-3 col-lg-2 col-xl-2 col-xxl-1">
-        <div class="DesignerComponent">
-            <img src="https://img1.freepng.ru/20180130/waw/kisspng-sausage-a-ham-5a7057b019aae9.9510112915173119201051.jpg" class="DesignerImage" /><br />
-            <b>Пепероні</b><br />
-            50г<br />
-            32 грн<br />
-            <label class="container buttonDesignerr">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-                Додати до піци
-            </label>
-        </div>
-    </div>
-
-    <div class="col-2 col-sm-4 col-md-3 col-lg-2 col-xl-2 col-xxl-1">
-        <div class="DesignerComponent">
-            <img src="https://m.dom-eda.com/uploads/images/catalog/item/f225c7e0f6/2d204f9692_1000.png" class="DesignerImage" /><br />
-            <b>Салямі</b><br />
-            50г<br />
-            22 грн<br />
-            <label class="container buttonDesignerr">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-                Додати до піци
-            </label>
-        </div>
-    </div>
-
-    <div class="col-2 col-sm-4 col-md-3 col-lg-2 col-xl-2 col-xxl-1">
-        <div class="DesignerComponent">
-            <img src="https://img1.freepng.ru/20180227/djq/kisspng-lox-smoked-salmon-sashimi-japanese-cuisine-japanese-salmon-sashimi-5a9511fd73ccb2.0410686715197189094743.jpg" class="DesignerImage" /><br />
-            <b>Лосось</b><br />
-            50г<br />
-            54 грн<br />
-            <label class="container buttonDesignerr">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-                Додати до піци
-            </label>
-        </div>
-    </div>
-
-    <div class="col-2 col-sm-4 col-md-3 col-lg-2 col-xl-2 col-xxl-1">
-        <div class="DesignerComponent">
-            <img src="https://ua.all.biz/img/ua/catalog/16160975.jpeg" class="DesignerImage" /><br />
-            <b>Кукурудза</b><br />
-            50г<br />
-            16 грн<br />
-            <label class="container buttonDesignerr">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-                Додати до піци
-            </label>
-        </div>
-    </div>
-
-    <div class="col-2 col-sm-4 col-md-3 col-lg-2 col-xl-2 col-xxl-1">
-        <div class="DesignerComponent">
-            <img src="https://st.depositphotos.com/1642482/3582/i/600/depositphotos_35824939-stock-photo-pineapple.jpg" class="DesignerImage" /><br />
-            <b>Ананас</b><br />
-            50г<br />
-            19 грн<br />
-            <label class="container buttonDesignerr">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-                Додати до піци
-            </label>
-        </div>
-    </div>
-
-    <div class="col-2 col-sm-4 col-md-3 col-lg-2 col-xl-2 col-xxl-1">
-        <div class="DesignerComponent">
-            <img src="http://pngimg.com/uploads/olives/olives_PNG14274.png" class="DesignerImage" /><br />
-            <b>Маслини</b><br />
-            50г<br />
-            18 грн<br />
-            <label class="container buttonDesignerr">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-                Додати до піци
-            </label>
-        </div>
-    </div>
-
-    <div class="col-2 col-sm-4 col-md-3 col-lg-2 col-xl-2 col-xxl-1">
-        <div class="DesignerComponent">
-            <img src="https://takprosto.cc/wp-content/uploads/p/prostoy-salat-s-tuncom/2.jpg" class="DesignerImage" /><br />
-            <b>Тунець</b><br />
-            50г<br />
-            39 грн<br />
-            <label class="container buttonDesignerr">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-                Додати до піци
-            </label>
-        </div>
-    </div>
-
-    <div class="col-2 col-sm-4 col-md-3 col-lg-2 col-xl-2 col-xxl-1">
-        <div class="DesignerComponent">
-            <img src="https://image.freepik.com/free-vector/realistic-red-hot-natural-chili-pepper_97886-3051.jpg" class="DesignerImage" /><br />
-            <b>Чилі</b><br />
-            5г<br />
-            16 грн<br />
-            <label class="container buttonDesignerr">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-                Додати до піци
-            </label>
-        </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 LoadMore">
+        <button type="button" class="btn btn-outline-secondary " id="look4">Дивитись більше</button>
     </div>
 
 </div>
+
+
+
+<a asp-controller="User" asp-action="PizzaDesigner">
+    <div class="pizzaDesigner">
+        <h3>КОНСТРУКТОР ПІЦИ</h3> Зроби свою ідеальну піцу!
+    </div>
+    <div class="AddInfo">Корж на піцу + порція сиру включається автоматично ціна: 45грн</div>
+
+</a>
 
 
 
