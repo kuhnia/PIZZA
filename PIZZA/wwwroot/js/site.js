@@ -14,12 +14,6 @@ jQuery(($) => {
     });
 });
 
-
-//$(window).on("load", function () {
-//    $(".preload").fadeOut(1000);
-//});
-
-
 function getName(str) {
     if (str.lastIndexOf('\\')) {
         var i = str.lastIndexOf('\\') + 1;
@@ -33,26 +27,46 @@ function getName(str) {
 }
 
 var count = 1;
+var ClasicPiza = 4;
+var FirmPiza = 4;
+var SeeFoodPiza = 4;
+var VeganPiza = 4;
 
 $(function () {
-/* $(".DesignerComponent").parents(".row").show();*/
-   /* $('#buildyourform > div:eq(' + (i - 1) + ') > input.fieldname').val();*/
     $(".row").children().hide();
-    let f = $('.row > :nth-child(' + count + '), .row > :nth-child(' + (count + 1) + ')/*, .row > :nth-child(' + (count + 2) + '), .row > :nth-child(' + (count + 3) +')*/');
+    let f = $('.row > :nth-child(' + count + '), .row > :nth-child(' + (count + 1) + '), .row > :nth-child(' + (count + 2) + ')');
     f.show();
     let b = $(".LoadMore");
     b.show();
 
+    document.getElementById("look").onclick = function () {
+        let f = $('.clasic > :nth-child(' + ClasicPiza + ') , .clasic > :nth-child(' + (ClasicPiza + 1) + ') , .clasic > :nth-child(' + (ClasicPiza + 2) +')');
+        f.show();
+        ClasicPiza += 3;
+    };  
+
+    document.getElementById("look2").onclick = function () {
+        let f = $('.firm > :nth-child(' + FirmPiza + ') , .firm > :nth-child(' + (FirmPiza + 1) + ') , .firm > :nth-child(' + (FirmPiza+2) + ')');
+        f.show();
+        FirmPiza += 3;
+    };  
+
+    document.getElementById("look3").onclick = function () {
+        let f = $('.seeFood > :nth-child(' + SeeFoodPiza + '), .seeFood > :nth-child(' + (SeeFoodPiza + 1) + ') , .seeFood > :nth-child(' + (SeeFoodPiza + 2) + ') ');
+        f.show();
+        SeeFoodPiza += 3;
+    }; 
+
+    document.getElementById("look4").onclick = function () {
+        let f = $('.vegan > :nth-child(' + VeganPiza + ') , .vegan > :nth-child(' + (VeganPiza + 1) + '), .vegan > :nth-child(' + (VeganPiza + 2) + ')');
+        f.show();
+        VeganPiza += 3;
+    };  
    
 })
 
-
-
-
 function loadData() {
     return new Promise((resolve, reject) => {
-        // setTimeout не является частью решения
-        // Код ниже должен быть заменен на логику подходящую для решения вашей задачи
         setTimeout(resolve, 2000);
     })
 }
@@ -65,18 +79,6 @@ loadData()
     });
 
 
-
-
-
-
 function AddPizzaToCast(id) {
     $.post("Home/AddPizzaToCast", {num: "10"})
 };
-
-
-
-
-
-
-
-

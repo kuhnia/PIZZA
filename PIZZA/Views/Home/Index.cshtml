@@ -15,39 +15,40 @@
     <img src="/image/slide5.jpg">
 </div>
 <h4>Піцци: Класичні</h4>
-<div class="row" id="row01">
 
-    @foreach (Pizza pizza in Model)
-    {
-        @if (pizza.Category != "klasic")
+    <div class="row clasic" >
+
+        @foreach (Pizza pizza in Model)
         {
-            continue;
-        }
-        <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
-            <div class="PizzaBlok">
-                <div class="imgPizza" style=" background: url('https://i.pinimg.com/564x/e8/b0/47/e8b047d578b7125da9a99d10cbf3b895.jpg');">
-                    <div class="blokPizza">
-                        <b> Склад: </b><br />
-                        <p>@pizza.Description</p>
+            @if (pizza.Category != "klasic")
+            {
+                continue;
+            }
+            <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
+                <div class="PizzaBlok">
+                    <div class="imgPizza" style=" background: url('https://i.pinimg.com/564x/e8/b0/47/e8b047d578b7125da9a99d10cbf3b895.jpg');">
+                        <div class="blokPizza">
+                            <b> Склад: </b><br />
+                            <p>@pizza.Description</p>
+                        </div>
                     </div>
+                    <b>@pizza.Name</b>
+                    <p class="price">@pizza.Price.ToString()</p>
+                    <button class="button-1" onclick="AddPizzaToCast(); return false;">В корзину</button>
                 </div>
-                <b></b>
-                <p class="price">@pizza.Price.ToString()</p>
-                <button class="button-1" onclick="AddPizzaToCast(); return false;">В корзину</button>
             </div>
+        }
+
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 LoadMore">
+            <button type="button" class="btn btn-outline-secondary " id="look">Дивитись більше</button>
         </div>
-    }
 
-    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 LoadMore">
-        <button type="button" class="btn btn-outline-secondary " id="look">Дивитись більше</button>
     </div>
-
-</div>
 
 
 
 <h4>Піцци: Фірмові</h4>
-<div class="row" id="row02">
+<div class="row firm">
     @foreach (Pizza pizza in Model)
     {
         @if (pizza.Category != "branded")
@@ -77,7 +78,7 @@
 </div>
 
 <h4>Піцци: з морепродуктами</h4>
-<div class="row" id="row03">
+<div class="row  seeFood">
     @foreach (Pizza pizza in Model)
     {
         @if (pizza.Category != "withSeafood")
@@ -108,7 +109,7 @@
 
 
 <h4>Піцци: Вегетеріанські</h4>
-<div class="row" id="row04">
+<div class="row vegan">
     @foreach (Pizza pizza in Model)
     {
         @if (pizza.Category != "vegan")
