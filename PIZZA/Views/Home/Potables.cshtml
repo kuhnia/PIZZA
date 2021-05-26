@@ -23,10 +23,10 @@
     <div class="col-3 col-sm-10 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
         <div class="PizzaBlok">
 
-            <img src="https://producto.com.ua/image/cache/catalog/%D0%B1%D0%BE%D0%BD%D0%B0%D0%BA%D0%B2%D0%B0-200x200.jpg" class="imgPizza">
+            <img src="data:image/jpeg;base64,@(Convert.ToBase64String(drink.Img))" class="imgPizza">
             <b>@drink.Name</b>
             <p class="price">@drink.Price</p>
-            <button class="button-1" onclick="@*@drink.AddToCast()*@">В корзину</button>
+            <button class="button-1" onclick="AddDrinkToCast(@drink.Id);">В корзину</button>
         </div>
     </div>
     }
@@ -151,7 +151,7 @@
         <div class="col-3 col-sm-10 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
             <div class="PizzaBlok">
 
-                <img src="https://producto.com.ua/image/cache/catalog/%D0%B1%D0%BE%D0%BD%D0%B0%D0%BA%D0%B2%D0%B0-200x200.jpg" class="imgPizza">
+                <img src="data:image/jpeg;base64,@(Convert.ToBase64String(drink.Img))" class="imgPizza">
                 <b>@drink.Name</b>
                 <p class="price">@drink.Price</p>
                 <button class="button-1">В корзину</button>

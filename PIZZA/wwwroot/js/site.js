@@ -90,7 +90,15 @@ loadData()
 
 
 function AddPizzaToCast(id) {
-    $.post("Home/AddPizzaToCast", {num: "10"})
+    $.post("Home/AddPizzaToCast", {num: id})
+};
+
+function AddDrinkToCast(id) {
+    $.post("Home/AddDrinkToCast", { num: id })
+};
+
+function AddSushiToCast(id) {
+    $.post("Home/AddSushiToCast", { num: id })
 };
 
 

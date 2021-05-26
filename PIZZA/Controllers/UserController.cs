@@ -6,6 +6,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using PIZZA.Models;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
+using System.IO;
 
 namespace PIZZA.Controllers
 {
@@ -21,9 +23,9 @@ namespace PIZZA.Controllers
         {
             return View();
         }
-        public IActionResult Accaunt()
+        public async Task<IActionResult> Accaunt()
         {
-            return View();
+            return View(Cast.FromJson(db.GetUser(User.Identity.Name).Cast));
         }
         public IActionResult AddPizza()
         {
@@ -33,15 +35,33 @@ namespace PIZZA.Controllers
         [HttpPost]
         public async Task<IActionResult> AddPizza(AddPizzaModel model)
         {
-                db.Pizza.Add(new Pizza { Name = model.Name, Img = Encoding.ASCII.GetBytes(model.Img), Description = model.Description, Price = model.Price, Category = model.Category, Weigth = model.Weight });
-                    await db.SaveChangesAsync();
-
-                    return RedirectToAction("Index", "Home");
-            return View(model);
+            byte[] imageData = null;
+            // считываем переданный файл в массив байтов
+            using (var binaryReader = new BinaryReader(model.Img.OpenReadStream()))
+            {
+                imageData = binaryReader.ReadBytes((int)model.Img.Length);
+            }
+            db.Pizza.Add(new Pizza { Name = model.Name, Img = imageData, Description = model.Description, Price = model.Price, Category = model.Category, Weigth = model.Weight });
+            await db.SaveChangesAsync();
+            return RedirectToAction("Index", "Home");
         }
         public IActionResult AddSushi()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddSushi(AddSushiModel model)
+        {
+            byte[] imageData = null;
+            // считываем переданный файл в массив байтов
+            using (var binaryReader = new BinaryReader(model.Img.OpenReadStream()))
+            {
+                imageData = binaryReader.ReadBytes((int)model.Img.Length);
+            }
+            db.Sushi.Add(new Sushi { Name = model.Name, Img = imageData, Description = model.Description, Price = model.Price, Category = model.Category});
+            await db.SaveChangesAsync();
+            return RedirectToAction("Index", "Home");
         }
 
         public IActionResult AddDrinks()
@@ -50,13 +70,18 @@ namespace PIZZA.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddDrinks(AddDrinksModel model)
+        public async Task<IActionResult> AddDrink(AddDrinkModel model)
         {
-            db.Drink.Add(new Drink { Name = model.Name, Img = model.Img, Price = model.Price, Category = model.Category});
+            byte[] imageData = null;
+            // считываем переданный файл в массив байтов
+            using (var binaryReader = new BinaryReader(model.Img.OpenReadStream()))
+            {
+                imageData = binaryReader.ReadBytes((int)model.Img.Length);
+            }
+            db.Drink.Add(new Drink { Name = model.Name, Img = imageData, Price = model.Price, Category = model.Category });
             await db.SaveChangesAsync();
 
             return RedirectToAction("Index", "Home");
-            return View(model);
         }
 
         public IActionResult DeletePizza()
@@ -67,7 +92,7 @@ namespace PIZZA.Controllers
         {
             return View();
         }
-        
+
         public IActionResult DeleteDrinks()
         {
             return View();

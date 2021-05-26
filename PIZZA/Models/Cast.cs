@@ -9,20 +9,34 @@ namespace PIZZA.Models
 {
     public class Cast
     {
-        Dictionary<int, int> Pizza;
-        Dictionary<int, int> Drink;
-        Dictionary<int, int> Sushi;
+        public List<Pizza> Pizza { set; get; }
+        public List<Drink> Drink { set; get; }
+        public List<Sushi> Sushi { set; get; }
+
+        public Cast()
+        {
+            Pizza = new List<Pizza>();
+            Drink = new List<Drink>();
+            Sushi = new List<Sushi>();
+        }
+
 
         public string ToJson()
         {
-            return JsonSerializer.Serialize(this);
+            string jsonString = JsonSerializer.Serialize(this);
+            return jsonString;
         }
 
         public static Cast FromJson(string json)
         {
-            Cast cast = JsonSerializer.Deserialize<Cast>(json);
+            Cast cast;
+            if (json != null)
+                cast = JsonSerializer.Deserialize<Cast>(json);
+            else
+                cast = new Cast();
             return cast;
         }
 
     }
+
 }

@@ -23,11 +23,42 @@ namespace PIZZA.Controllers
             db = context;
         }
         
-        public ActionResult AddPizzaToCast(string num)
+        public async Task<ActionResult> AddPizzaToCast(string num)
         {
-            User.Identity.Name.ToString();
             //Do Something
-            //db.User.FirstOrDefault.Where(p=>p.Id == User.Identity.Id)
+            User user = db.GetUser(User.Identity.Name);
+            Cast cast = new Cast();
+            if (user.Cast != null)
+                cast= Cast.FromJson(user.Cast);
+            cast.Pizza.Add(db.GetPizza(int.Parse(num)));
+            user.Cast = cast.ToJson();
+            await db.SaveChangesAsync();
+            return View();
+        }
+
+        public async Task<ActionResult> AddDrinkToCast(string num)
+        {
+            //Do Something
+            User user = db.GetUser(User.Identity.Name);
+            Cast cast = new Cast();
+            if (user.Cast != null)
+                cast = Cast.FromJson(user.Cast);
+            cast.Drink.Add(db.GetDrink(int.Parse(num)));
+            user.Cast = cast.ToJson();
+            await db.SaveChangesAsync();
+            return View();
+        }
+
+        public async Task<ActionResult> AddSushiToCast(string num)
+        {
+            //Do Something
+            User user = db.GetUser(User.Identity.Name);
+            Cast cast = new Cast();
+            if (user.Cast != null)
+                cast = Cast.FromJson(user.Cast);
+            cast.Sushi.Add(db.GetSushi(int.Parse(num)));
+            user.Cast = cast.ToJson();
+            await db.SaveChangesAsync();
             return View();
         }
 
@@ -50,9 +81,9 @@ namespace PIZZA.Controllers
             return View(await db.Drink.ToListAsync());
         }
 
-        public IActionResult Sushi()
+        public async Task<IActionResult> SushiAsync()
         {
-            return View();
+            return View(await db.Sushi.ToListAsync());
         }
         public IActionResult Login()
         {

@@ -1,10 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace PIZZA.ViewModels
 {
-    public class AddPizzaModel
+    public class AddSushiModel
     {
         [Required(ErrorMessage = "Не вказано Назву")]
         public string Name { get; set; }
@@ -19,14 +22,10 @@ namespace PIZZA.ViewModels
 
         [Required(ErrorMessage = "Виберіть категорію")]
         [DataType(DataType.Text)]
-        public string Category { get; set; } 
+        public string Category { get; set; }
 
         [Required(ErrorMessage = "Вкажіть ціну")]
         [DataType(DataType.Text)]
         public double Price { get; set; }
-
-        [Required(ErrorMessage = "Вкажіть вагу")]
-        [DataType(DataType.Text)]
-        public double Weight { get; set; }
     }
 }

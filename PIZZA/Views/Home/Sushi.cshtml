@@ -1,4 +1,6 @@
-﻿@{ ViewData["Title"] = "Sushi Page"; }
+﻿@model List<Sushi>
+
+@{ ViewData["Title"] = "Sushi Page"; }
 
 <div class="fotorama" data-loop="true" data-transition="crossfade" data-autoplay="5000">
     <img src="~/image/slide1.jpg">
@@ -11,118 +13,124 @@
 <h4>Суші: роли</h4>
 
 <div class="row">
+    @foreach (Sushi sushi in Model)
+    {
+        @if (sushi.Category != "rol")
+        {
+            continue;
+        }
+        <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
+            <div class="PizzaBlok">
+                <div class="imgPizza" style=" background: url('data:image/jpeg;base64,@(Convert.ToBase64String(sushi.Img))')">
+                    <div class="blokPizza">
+                        <b> Склад: </b><br />
+                        @sushi.Description
+                    </div>
+                </div>
+                <b>@sushi.Name</b>
+                <p class="price">@sushi.Price грн</p>
+                <button class="button-1" onclick="AddSushiToCast(@sushi.Id);">В корзину</button>
+            </div>
+        </div>
+    }
+
 
     <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
         <div class="PizzaBlok">
-            <div class="imgPizza" style=" background: url('https://www.tereveni.com.ua/wp-content/uploads/2021/04/x05_7-330x220.jpg.pagespeed.ic.q095hg8iqG.jpg')">
+            <div class="imgPizza" style=" background: url('https://img.iamcook.ru/2018/upl/recipes/middle/u-4663b0652eb2fd2945ba548d23221652.jpg')">
                 <div class="blokPizza">
                     <b> Склад: </b><br />
-                    Водорості норі, рис, огірок, мідії, соус унагі, кунжут.
+                    Рис, водорості норі, сир, мідії, огірок, кунжут
                 </div>
             </div>
-            <b>Макі мідії</b>
-            <p class="price">45грн</p>
-            <button class="button-1">В корзину</button>
-        </div>
-    </div>
-
-
-<div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
-    <div class="PizzaBlok">
-        <div class="imgPizza" style=" background: url('https://img.iamcook.ru/2018/upl/recipes/middle/u-4663b0652eb2fd2945ba548d23221652.jpg')">
-            <div class="blokPizza">
-                <b> Склад: </b><br />
-                Рис, водорості норі, сир, мідії, огірок, кунжут
-            </div>
-        </div>
             <b>Каліфорнія мідії</b>
             <p class="price">79грн</p>
             <button class="button-1">В корзину</button>
         </div>
     </div>
 
-<div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
-    <div class="PizzaBlok">
-        <div class="imgPizza" style=" background: url('https://sushi-time.mk.ua/wp-content/uploads/2020/05/photo_2020-05-28-14.10.21-2-405x330.jpeg')">
-            <div class="blokPizza">
-                <b> Склад: </b><br />
-                Рис, водорості норі, сир, вугор. Поливається соусом унагі.
+    <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
+        <div class="PizzaBlok">
+            <div class="imgPizza" style=" background: url('https://sushi-time.mk.ua/wp-content/uploads/2020/05/photo_2020-05-28-14.10.21-2-405x330.jpeg')">
+                <div class="blokPizza">
+                    <b> Склад: </b><br />
+                    Рис, водорості норі, сир, вугор. Поливається соусом унагі.
+                </div>
             </div>
+            <b>Філадельфія вугор </b>
+            <p class="price">255грн</p>
+            <button class="button-1">В корзину</button>
         </div>
-        <b>Філадельфія вугор </b>
-        <p class="price">255грн</p>
-        <button class="button-1">В корзину</button>
     </div>
-</div>
 
-<div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
-    <div class="PizzaBlok">
-        <div class="imgPizza" style=" background: url('https://www.tereveni.com.ua/wp-content/uploads/2020/02/maki_krevetka-3-330x220.jpg')">
-            <div class="blokPizza">
-                <b> Склад: </b><br />
-                Рис, водорості норі, огірок свіжий, креветка смажена на маслі, соуси цезар та теріякі.
+    <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
+        <div class="PizzaBlok">
+            <div class="imgPizza" style=" background: url('https://www.tereveni.com.ua/wp-content/uploads/2020/02/maki_krevetka-3-330x220.jpg')">
+                <div class="blokPizza">
+                    <b> Склад: </b><br />
+                    Рис, водорості норі, огірок свіжий, креветка смажена на маслі, соуси цезар та теріякі.
+                </div>
             </div>
+            <b>Макі креветка</b>
+            <p class="price">68грн</p>
+            <button class="button-1">В корзину</button>
         </div>
-        <b>Макі креветка</b>
-        <p class="price">68грн</p>
-        <button class="button-1">В корзину</button>
     </div>
-</div>
-<div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
-    <div class="PizzaBlok">
-        <div class="imgPizza" style=" background: url('https://www.tereveni.com.ua/wp-content/uploads/2020/02/maki_ikra-5-1-330x220.jpg')">
-            <div class="blokPizza">
-                <b> Склад: </b><br />
-                Рис, водорості норі, огірок свіжий,  ікра,  сир,  омлет.
+    <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
+        <div class="PizzaBlok">
+            <div class="imgPizza" style=" background: url('https://www.tereveni.com.ua/wp-content/uploads/2020/02/maki_ikra-5-1-330x220.jpg')">
+                <div class="blokPizza">
+                    <b> Склад: </b><br />
+                    Рис, водорості норі, огірок свіжий,  ікра,  сир,  омлет.
+                </div>
             </div>
+            <b>Макі ікра</b>
+            <p class="price">49грн</p>
+            <button class="button-1">В корзину</button>
         </div>
-        <b>Макі ікра</b>
-        <p class="price">49грн</p>
-        <button class="button-1">В корзину</button>
     </div>
-</div>
 
-<div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
-    <div class="PizzaBlok">
-        <div class="imgPizza" style=" background: url('https://www.tereveni.com.ua/wp-content/uploads/2020/02/xkalifornia_krevetka-3-330x220.jpg.pagespeed.ic.Ub3VCrH43j.jpg')">
-            <div class="blokPizza">
-                <b> Склад: </b><br />
-                Рис,  водорості норі, сир,  огірок свіжий,  креветка смажена на маслі,  ікра.
+    <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
+        <div class="PizzaBlok">
+            <div class="imgPizza" style=" background: url('https://www.tereveni.com.ua/wp-content/uploads/2020/02/xkalifornia_krevetka-3-330x220.jpg.pagespeed.ic.Ub3VCrH43j.jpg')">
+                <div class="blokPizza">
+                    <b> Склад: </b><br />
+                    Рис,  водорості норі, сир,  огірок свіжий,  креветка смажена на маслі,  ікра.
+                </div>
             </div>
+            <b>Каліфорнія креветка</b>
+            <p class="price">139грн</p>
+            <button class="button-1">В корзину</button>
         </div>
-        <b>Каліфорнія креветка</b>
-        <p class="price">139грн</p>
-        <button class="button-1">В корзину</button>
     </div>
-</div>
 
-<div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
-    <div class="PizzaBlok">
-        <div class="imgPizza" style=" background: url('https://www.tereveni.com.ua/wp-content/uploads/2020/02/kalifornia_kurcha_ananas-3-330x220.jpg')">
-            <div class="blokPizza">
-                <b> Склад: </b><br />
-                Рис,  водорості норі, сир,  ананас, курча теріякі.
+    <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
+        <div class="PizzaBlok">
+            <div class="imgPizza" style=" background: url('https://www.tereveni.com.ua/wp-content/uploads/2020/02/kalifornia_kurcha_ananas-3-330x220.jpg')">
+                <div class="blokPizza">
+                    <b> Склад: </b><br />
+                    Рис,  водорості норі, сир,  ананас, курча теріякі.
+                </div>
             </div>
+            <b>Tеріякі з ананасом</b>
+            <p class="price">95грн</p>
+            <button class="button-1">В корзину</button>
         </div>
-        <b>Tеріякі з ананасом</b>
-        <p class="price">95грн</p>
-        <button class="button-1">В корзину</button>
     </div>
-</div>
 
-<div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
-    <div class="PizzaBlok">
-        <div class="imgPizza" style=" background: url('https://www.tereveni.com.ua/wp-content/uploads/2019/05/xmaki_pecheny_losos2-330x220.jpg.pagespeed.ic.8pjcT3juOn.jpg')">
-            <div class="blokPizza">
-                <b> Склад: </b><br />
-                Рис, огірок свіжий, водорості норі, лосось печений, кунжут.
+    <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
+        <div class="PizzaBlok">
+            <div class="imgPizza" style=" background: url('https://www.tereveni.com.ua/wp-content/uploads/2019/05/xmaki_pecheny_losos2-330x220.jpg.pagespeed.ic.8pjcT3juOn.jpg')">
+                <div class="blokPizza">
+                    <b> Склад: </b><br />
+                    Рис, огірок свіжий, водорості норі, лосось печений, кунжут.
+                </div>
             </div>
+            <b>Макі лосось печений</b>
+            <p class="price">73грн</p>
+            <button class="button-1">В корзину</button>
         </div>
-        <b>Макі лосось печений</b>
-        <p class="price">73грн</p>
-        <button class="button-1">В корзину</button>
     </div>
-</div>
 </div>
 
 
@@ -130,19 +138,26 @@
 
 <div class="row">
 
-    <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
-        <div class="PizzaBlok">
-            <div class="imgPizza" style=" background: url('https://www.tereveni.com.ua/wp-content/uploads/2018/06/%D1%81%D0%B5%D1%82-%D0%BB%D0%BE%D1%81%D0%BE%D1%81%D1%8C-960x640.jpg')">
-                <div class="blokPizza">
-                    <b> Склад: </b><br />
-                    Футомакі лосось печений, макі лосось
+    @foreach (Sushi sushi in Model)
+    {
+        @if (sushi.Category != "set")
+        {
+            continue;
+        }
+        <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
+            <div class="PizzaBlok">
+                <div class="imgPizza" style=" background: url('data:image/jpeg;base64,@(Convert.ToBase64String(sushi.Img))')">
+                    <div class="blokPizza">
+                        <b> Склад: </b><br />
+                        @sushi.Description
+                    </div>
                 </div>
+                <b>@sushi.Name</b>
+                <p class="price">@sushi.Price грн</p>
+                <button class="button-1" onclick="AddSushiToCast(@sushi.Id);">В корзину</button>
             </div>
-            <b>Лосось</b>
-            <p class="price">229грн</p>
-            <button class="button-1">В корзину</button>
         </div>
-    </div>
+    }
 
     <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
         <div class="PizzaBlok">

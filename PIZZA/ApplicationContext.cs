@@ -13,15 +13,16 @@ namespace PIZZA
             Database.EnsureCreated();   // создаем базу данных при первом обращении
         }
 
-        //public DbSet<Cast> Cast { set; get; }
-        //public DbSet<Deserts> Deserts { set; get; }
-        //public DbSet<DietFood> DietFoods { set; get; }
         //public DbSet<Order> Order { set; get; }
         public DbSet<Pizza> Pizza { set; get; }
         public DbSet<Drink> Drink { set; get; }
-        //public DbSet<Rolls> Rolls { set; get; }
-        //public DbSet<Sauces> Sauces { set; get; }
+        public DbSet<Sushi> Sushi { set; get; }
         public DbSet<User> User { set; get; }
+
+        public User GetUser(string email) => User.FirstOrDefault(c => c.Email == email);
+        public Pizza GetPizza(int id) => Pizza.FirstOrDefault(c => c.Id == id);
+        public Drink GetDrink(int id) => Drink.FirstOrDefault(c => c.Id == id);
+        public Sushi GetSushi(int id) => Sushi.FirstOrDefault(c => c.Id == id);
 
     }
 }

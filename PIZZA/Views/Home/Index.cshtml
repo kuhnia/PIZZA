@@ -25,15 +25,15 @@
         }
         <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
             <div class="PizzaBlok">
-                <div class="imgPizza" style=" background: url('https://i.pinimg.com/564x/e8/b0/47/e8b047d578b7125da9a99d10cbf3b895.jpg');">
+                <div class="imgPizza" style=" background: url('data:image/jpeg;base64,@(Convert.ToBase64String(pizza.Img))');">
                     <div class="blokPizza">
                         <b> Склад: </b><br />
                         <p>@pizza.Description</p>
                     </div>
                 </div>
-                <b></b>
+                <b>@pizza.Name</b>
                 <p class="price">@pizza.Price.ToString()</p>
-                <button class="button-1" onclick="AddPizzaToCast(); return false;">В корзину</button>
+                <button class="button-1" onclick="AddPizzaToCast(@pizza.Id);">В корзину</button>
             </div>
         </div>
     }

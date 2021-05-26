@@ -1,4 +1,6 @@
-﻿<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+﻿@model Cast
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container bootstrap snippets bootdey">
     <div class="row">
         <div class="profile-nav col-md-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
@@ -40,13 +42,33 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="bio-graph-heading">
-                    <img src="https://i.pinimg.com/originals/57/a4/d2/57a4d2fbcf28e3159a2ee14ac8982a86.png" class="BasketImgTovar" />
-                    <b class="textBasket">Назва </b>
-                    <b class="textBasket">ціна</b>
-                    <img src="~/image/cancel.png" class="cencel" />
-                </div>
+                @foreach (Pizza pizza in Model.Pizza)
+                {
+                    <div class="bio-graph-heading">
+                        <img src="https://i.pinimg.com/originals/57/a4/d2/57a4d2fbcf28e3159a2ee14ac8982a86.png" class="BasketImgTovar" />
+                        <b class="textBasket">@pizza.Name </b>
+                        <b class="textBasket">@pizza.Price</b>
+                        <img src="~/image/cancel.png" class="cencel" />
+                    </div>
+                }
+                @foreach (Drink drink in Model.Drink)
+                {
+                    <div class="bio-graph-heading">
+                        <img src="https://i.pinimg.com/originals/57/a4/d2/57a4d2fbcf28e3159a2ee14ac8982a86.png" class="BasketImgTovar" />
+                        <b class="textBasket">@drink.Name </b>
+                        <b class="textBasket">@drink.Price</b>
+                        <img src="~/image/cancel.png" class="cencel" />
+                    </div>
+                }
+                @foreach (Sushi sushi in Model.Sushi)
+                {
+                    <div class="bio-graph-heading">
+                        <img src="https://i.pinimg.com/originals/57/a4/d2/57a4d2fbcf28e3159a2ee14ac8982a86.png" class="BasketImgTovar" />
+                        <b class="textBasket">@sushi.Name </b>
+                        <b class="textBasket">@sushi.Price</b>
+                        <img src="~/image/cancel.png" class="cencel" />
+                    </div>
+                }
 
                 <div class="bio-graph-heading">
                     <img src="https://i.pinimg.com/originals/57/a4/d2/57a4d2fbcf28e3159a2ee14ac8982a86.png" class="BasketImgTovar" />
@@ -63,7 +85,7 @@
                 </div>
 
             </div>
-           
+
         </div>
     </div>
 </div>
