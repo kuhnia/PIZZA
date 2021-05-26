@@ -40,10 +40,6 @@ namespace PIZZA.Controllers
             return View();
         }
 
-        public IActionResult Desserts()
-        {
-            return View();
-        }
 
         public async Task<IActionResult> PotablesAsync()
         {

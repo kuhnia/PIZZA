@@ -38,6 +38,8 @@ $(function () {
     f.show();
     let b = $(".LoadMore");
     b.show();
+    let a = $(".DesignerComponent");
+    a.show();
 
     document.getElementById("look").onclick = function () {
         let f = $('.clasic > :nth-child(' + ClasicPiza + ') , .clasic > :nth-child(' + (ClasicPiza + 1) + ') , .clasic > :nth-child(' + (ClasicPiza + 2) +')');
@@ -65,6 +67,8 @@ $(function () {
    
 })
 
+
+
 function loadData() {
     return new Promise((resolve, reject) => {
         setTimeout(resolve, 2000);
@@ -76,9 +80,11 @@ loadData()
         let preloaderEl = document.getElementById('preloader');
         preloaderEl.classList.add('hidden');
         preloaderEl.classList.remove('visible');
+
     });
 
 
 function AddPizzaToCast(id) {
     $.post("Home/AddPizzaToCast", {num: "10"})
 };
+

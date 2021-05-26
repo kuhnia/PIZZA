@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using PIZZA.Models;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 
 namespace PIZZA.Controllers
 {
@@ -59,18 +60,19 @@ namespace PIZZA.Controllers
             return View(model);
         }
 
-        public IActionResult DeletePizza()
+        public async Task<IActionResult> DeletePizza()
         {
-            return View();
+            return View(await db.Pizza.ToListAsync());
         }
+
         public IActionResult DeleteSushi()
         {
             return View();
         }
         
-        public IActionResult DeleteDrinks()
+        public async Task<IActionResult> DeleteDrinks()
         {
-            return View();
+            return View(await db.Drink.ToListAsync());
         }
 
         public IActionResult EditPizza()

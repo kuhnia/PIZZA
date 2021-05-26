@@ -8,22 +8,32 @@
     font-size: 16px;
     font-weight: 300;
     margin: 3%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 140px;
 
     .BasketImgTovar {
-        width: 15%;
+        overflow: hidden;
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        width: 100%;
+        height: 100%;
         border-radius: 4px 4px 0 0;
     }
 
     .textBasket {
         color: white;
+        margin-top: 20%;
         margin-left: 10%;
     }
 
     .DeleteBatton {
-        width: 20%;
-        margin-left: 20%;
+        width: 70%;
+        grid-auto-rows: 20%;
         background-color: #885BA7;
         color: white;
-        padding: 4px 4px;
+        margin-top: 14%;
+        margin-bottom: 14%;
     }
 }
