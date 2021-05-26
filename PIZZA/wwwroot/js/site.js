@@ -14,12 +14,6 @@ jQuery(($) => {
     });
 });
 
-
-//$(window).on("load", function () {
-//    $(".preload").fadeOut(1000);
-//});
-
-
 function getName(str) {
     if (str.lastIndexOf('\\')) {
         var i = str.lastIndexOf('\\') + 1;
@@ -32,47 +26,51 @@ function getName(str) {
     uploaded.innerHTML = filename;
 }
 
- var count = 1;
+var count = 1;
+var ClasicPiza = 4;
+var FirmPiza = 4;
+var SeeFoodPiza = 4;
+var VeganPiza = 4;
+
 $(function () {
-/* $(".DesignerComponent").parents(".row").show();*/
-   /* $('#buildyourform > div:eq(' + (i - 1) + ') > input.fieldname').val();*/
     $(".row").children().hide();
-    let f = $('.row > :nth-child(' + count + '), .row > :nth-child(' + (count + 1) + ')/*, .row > :nth-child(' + (count + 2) + '), .row > :nth-child(' + (count + 3) +')*/');
+    let f = $('.row > :nth-child(' + count + '), .row > :nth-child(' + (count + 1) + '), .row > :nth-child(' + (count + 2) + ')');
     f.show();
     let b = $(".LoadMore");
     b.show();
+    let a = $(".DesignerComponent");
+    a.show();
 
-    document.getElementById("look").addEventListener("click", myFunction);
-    document.getElementById("look2").addEventListener("click", myFunction01);
-    document.getElementById("look3").addEventListener("click", myFunction02);
-    document.getElementById("look4").addEventListener("click", myFunction03);
+    document.getElementById("look").onclick = function () {
+        let f = $('.clasic > :nth-child(' + ClasicPiza + ') , .clasic > :nth-child(' + (ClasicPiza + 1) + ') , .clasic > :nth-child(' + (ClasicPiza + 2) +')');
+        f.show();
+        ClasicPiza += 3;
+    };  
 
-    count += 2;
+    document.getElementById("look2").onclick = function () {
+        let f = $('.firm > :nth-child(' + FirmPiza + ') , .firm > :nth-child(' + (FirmPiza + 1) + ') , .firm > :nth-child(' + (FirmPiza+2) + ')');
+        f.show();
+        FirmPiza += 3;
+    };  
+
+    document.getElementById("look3").onclick = function () {
+        let f = $('.seeFood > :nth-child(' + SeeFoodPiza + '), .seeFood > :nth-child(' + (SeeFoodPiza + 1) + ') , .seeFood > :nth-child(' + (SeeFoodPiza + 2) + ') ');
+        f.show();
+        SeeFoodPiza += 3;
+    }; 
+
+    document.getElementById("look4").onclick = function () {
+        let f = $('.vegan > :nth-child(' + VeganPiza + ') , .vegan > :nth-child(' + (VeganPiza + 1) + '), .vegan > :nth-child(' + (VeganPiza + 2) + ')');
+        f.show();
+        VeganPiza += 3;
+    };  
+   
 })
-
-function myFunction() {
-    let f = $('#row01 > :nth-child(' + count + '), #row01 > :nth-child(' + (count + 1) + ')/*, #row01 > :nth-child(' + (count + 2) + '), #row01 > :nth-child(' + (count + 3) + ')*/');
-    f.show();
-}
-function myFunction01() {
-    let f = $('#row02 > :nth-child(' + count + '), #row02 > :nth-child(' + (count + 1) + ')/*, #row02 > :nth-child(' + (count + 2) + '), #row02 > :nth-child(' + (count + 3) + ')*/');
-    f.show();
-}
-function myFunction02() {
-    let f = $('#row03 > :nth-child(' + count + '), #row03 > :nth-child(' + (count + 1) + ')/*, #row03 > :nth-child(' + (count + 2) + '), #row03 > :nth-child(' + (count + 3) + ')*/');
-    f.show();
-}
-function myFunction03() {
-    let f = $('#row > :nth-child(' + count + '), #row > :nth-child(' + (count + 1) + ')/*, #row > :nth-child(' + (count + 2) + '), #row > :nth-child(' + (count + 3) + ')*/');
-    f.show();
-}
 
 
 
 function loadData() {
     return new Promise((resolve, reject) => {
-        // setTimeout не является частью решения
-        // Код ниже должен быть заменен на логику подходящую для решения вашей задачи
         setTimeout(resolve, 2000);
     })
 }
@@ -82,11 +80,8 @@ loadData()
         let preloaderEl = document.getElementById('preloader');
         preloaderEl.classList.add('hidden');
         preloaderEl.classList.remove('visible');
+
     });
-
-
-
-
 
 
 function AddPizzaToCast(id) {
@@ -100,11 +95,4 @@ function AddDrinkToCast(id) {
 function AddSushiToCast(id) {
     $.post("Home/AddSushiToCast", { num: id })
 };
-
-
-
-
-
-
-
 

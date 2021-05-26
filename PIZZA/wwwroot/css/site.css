@@ -2,6 +2,9 @@
 html {
   /*  overflow-y: hidden;*/ }
 
+a {
+  text-decoration: none !important; }
+
 a.nav-link:hover {
   color: black !important; }
 
@@ -31,7 +34,8 @@ a.nav-link:hover {
     .container {
         max-width: none;
     }
-}*/
+}
+*/
 #preloader {
   position: fixed;
   left: 0;
@@ -412,18 +416,28 @@ a {
   -webkit-border-radius: 4px 4px 0 0;
   font-size: 16px;
   font-weight: 300;
-  margin: 3%; }
+  margin: 3%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 100px; }
   .bio-graph-heading .BasketImgTovar {
-    width: 25%;
+    overflow: hidden;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    width: 100%;
+    height: 100%;
     border-radius: 4px 4px 0 0; }
   .bio-graph-heading .textBasket {
     color: white;
+    margin-top: 20%;
     margin-left: 10%; }
   .bio-graph-heading .cencel {
-    width: 3%;
-    position: relative;
-    right: -25%;
-    bottom: 20%; }
+    width: 20%;
+    grid-auto-rows: 20%;
+    color: white;
+    margin-top: 14%;
+    margin-bottom: 14%; }
 
 .bio-graph-info {
   color: #89817e; }
@@ -547,16 +561,26 @@ span.psw {
   -webkit-border-radius: 4px 4px 0 0;
   font-size: 16px;
   font-weight: 300;
-  margin: 3%; }
+  margin: 3%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 140px; }
   .blokRemoval .BasketImgTovar {
-    width: 15%;
+    overflow: hidden;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    width: 100%;
+    height: 100%;
     border-radius: 4px 4px 0 0; }
   .blokRemoval .textBasket {
     color: white;
+    margin-top: 20%;
     margin-left: 10%; }
   .blokRemoval .DeleteBatton {
-    width: 20%;
-    margin-left: 20%;
+    width: 70%;
+    grid-auto-rows: 20%;
     background-color: #885BA7;
     color: white;
-    padding: 4px 4px; }
+    margin-top: 14%;
+    margin-bottom: 14%; }

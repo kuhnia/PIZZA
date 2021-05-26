@@ -1,7 +1,9 @@
 ﻿html{
   /*  overflow-y: hidden;*/
 }
-
+a {
+    text-decoration: none !important;
+}
 a.nav-link{
     &:hover{
         color:black !important;
@@ -33,8 +35,8 @@ a.nav-link{
     .container {
         max-width: none;
     }
-}*/
-
+}
+*/
 
 #preloader {
     position: fixed;
