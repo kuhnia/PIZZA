@@ -58,7 +58,7 @@
         }
         <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
             <div class="PizzaBlok">
-                <div class="imgPizza" style=" background: url('https://i.pinimg.com/564x/e8/b0/47/e8b047d578b7125da9a99d10cbf3b895.jpg');">
+                <div class="imgPizza" style=" background: url('data:image/jpeg;base64,@(Convert.ToBase64String(pizza.Img))');">
                     <div class="blokPizza">
                         <b> Склад: </b><br />
                         <p>@pizza.Description</p>
@@ -88,7 +88,7 @@
         }
         <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
             <div class="PizzaBlok">
-                <div class="imgPizza" style=" background: url('https://i.pinimg.com/564x/e8/b0/47/e8b047d578b7125da9a99d10cbf3b895.jpg');">
+                <div class="imgPizza" style=" background: url('data:image/jpeg;base64,@(Convert.ToBase64String(pizza.Img))');">
                     <div class="blokPizza">
                         <b> Склад: </b><br />
                         <p>@pizza.Description</p>
@@ -120,7 +120,7 @@
 
         <div class="col-3 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-1">
             <div class="PizzaBlok">
-                <div class="imgPizza" style=" background: url('https://i.pinimg.com/564x/e8/b0/47/e8b047d578b7125da9a99d10cbf3b895.jpg');">
+                <div class="imgPizza" style=" background: url('data:image/jpeg;base64,@(Convert.ToBase64String(pizza.Img))');">
                     <div class="blokPizza">
                         <b> Склад: </b><br />
                         <p>@pizza.Description</p>
@@ -141,13 +141,7 @@
 
 
 
-<a asp-controller="User" asp-action="PizzaDesigner">
-    <div class="pizzaDesigner">
-        <h3>КОНСТРУКТОР ПІЦИ</h3> Зроби свою ідеальну піцу!
-    </div>
-    <div class="AddInfo">Корж на піцу + порція сиру включається автоматично ціна: 45грн</div>
 
-</a>
 
 
 
