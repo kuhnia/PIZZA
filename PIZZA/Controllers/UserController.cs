@@ -6,6 +6,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using PIZZA.Models;
 using System.Text;
+using System.IO;
+using Microsoft.EntityFrameworkCore;
 
 namespace PIZZA.Controllers
 {
@@ -21,6 +23,7 @@ namespace PIZZA.Controllers
         {
             return View();
         }
+
         public async Task<IActionResult> Accaunt()
         {
             return View(Cast.FromJson(db.GetUser(User.Identity.Name).Cast));
@@ -94,7 +97,7 @@ namespace PIZZA.Controllers
 
         public IActionResult DeleteDrinks()
         {
-            return View(await db.Drink.ToListAsync());
+            return View();
         }
 
         public IActionResult EditPizza()

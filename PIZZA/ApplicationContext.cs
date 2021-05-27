@@ -10,7 +10,7 @@ namespace PIZZA
     public class ApplicationContext : DbContext
     {
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options) {
-           /* Database.EnsureCreated(); */  // создаем базу данных при первом обращении
+            Database.EnsureCreated();   // создаем базу данных при первом обращении
         }
 
         //public DbSet<Order> Order { set; get; }
