@@ -66,10 +66,6 @@ namespace PIZZA.Controllers
         {
             return View(await db.Pizza.ToListAsync());
         }
-        public IActionResult Create()
-        {
-            return View();
-        }
 
 
         public async Task<IActionResult> PotablesAsync()
@@ -145,35 +141,40 @@ namespace PIZZA.Controllers
         }
 
 
-        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        //public IActionResult Error()
-        //{
-        //    db.User.Add(user);
-        //    await db.SaveChangesAsync();
-        //    return RedirectToAction("Index");
-        //}
+        public async Task RemovePizzaFromCastAsync(string Id)
+        {
+            //Do Something
+            User user = db.GetUser(User.Identity.Name);
+            Cast cast = new Cast();
+            if (user.Cast != null)
+                cast = Cast.FromJson(user.Cast);
+            cast.Pizza.Remove(db.GetPizza(int.Parse(Id)));
+            user.Cast = cast.ToJson();
+            await db.SaveChangesAsync();
+        }
 
-        //private readonly ILogger<HomeController> _logger;
+        public async Task RemoveDrinkFromCastAsync(string Id)
+        {
+            //Do Something
+            User user = db.GetUser(User.Identity.Name);
+            Cast cast = new Cast();
+            if (user.Cast != null)
+                cast = Cast.FromJson(user.Cast);
+            cast.Drink.Remove(db.GetDrink(int.Parse(Id)));
+            user.Cast = cast.ToJson();
+            await db.SaveChangesAsync();
+        }
 
-        //public HomeController(ILogger<HomeController> logger)
-        //{
-        //    _logger = logger;
-        //}
-
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
-
-        //public IActionResult Privacy()
-        //{
-        //    return View();
-        //}
-
-        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        //public IActionResult Error()
-        //{
-        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        //}
+        public async Task RemoveSushiFromCastAsync(string Id)
+        {
+            //Do Something
+            User user = db.GetUser(User.Identity.Name);
+            Cast cast = new Cast();
+            if (user.Cast != null)
+                cast = Cast.FromJson(user.Cast);
+            cast.Sushi.Remove(db.GetSushi(int.Parse(Id)));
+            user.Cast = cast.ToJson();
+            await db.SaveChangesAsync();
+        }
     }
 }

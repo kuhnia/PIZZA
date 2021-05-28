@@ -4,7 +4,7 @@ using System.IO;
 
 namespace PIZZA.ViewModels
 {
-    public class AddDrinkModel
+    public class AddDrinksModel
     {
         [Required(ErrorMessage = "Не вказано Назву")]
         public string Name { get; set; }

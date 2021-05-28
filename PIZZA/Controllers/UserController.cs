@@ -8,6 +8,7 @@ using PIZZA.Models;
 using System.Text;
 using System.IO;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PIZZA.Controllers
 {
@@ -24,6 +25,7 @@ namespace PIZZA.Controllers
             return View();
         }
 
+        [Authorize]
         public async Task<IActionResult> Accaunt()
         {
             return View(Cast.FromJson(db.GetUser(User.Identity.Name).Cast));
@@ -71,7 +73,7 @@ namespace PIZZA.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddDrink(AddDrinkModel model)
+        public async Task<IActionResult> AddDrink(AddDrinksModel model)
         {
             byte[] imageData = null;
             // считываем переданный файл в массив байтов

@@ -86,13 +86,25 @@ loadData()
 
 function AddPizzaToCast(id) {
     $.post("Home/AddPizzaToCast", {num: id})
-};
+}
 
 function AddDrinkToCast(id) {
     $.post("Home/AddDrinkToCast", { num: id })
-};
+}
 
 function AddSushiToCast(id) {
     $.post("Home/AddSushiToCast", { num: id })
-};
+}
+
+function RemovePizzaFromCast(id) {
+    $.post("Home/RemovePizzaFromCast", { num: id })
+}
+
+function RemoveDrinkFromCast(id) {
+    $.post("Home/RemoveDrinkFromCast", { num: id })
+}
+
+function RemoveSushiFromCast(id) {
+    $.post("Home/RemoveSushiFromCast", { num: id })
+}
 
