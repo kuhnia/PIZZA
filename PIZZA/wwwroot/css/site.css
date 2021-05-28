@@ -458,6 +458,9 @@ a {
   width: 100px;
   display: inline-block; }
 
+.buy {
+  margin-left: 45%; }
+
 .contentBox {
   width: 40%;
   padding: 12px 20px;

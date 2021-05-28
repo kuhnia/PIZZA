@@ -42,8 +42,9 @@ $(function () {
     document.getElementById("look").onclick = function () {
         let f = $('.clasic > :nth-child(' + ClasicPiza + ') , .clasic > :nth-child(' + (ClasicPiza + 1) + ') , .clasic > :nth-child(' + (ClasicPiza + 2) +')');
         f.show();
+        if (ClasicPiza > 8) { alert("Продуктів даної категорії більше немає"); }
         ClasicPiza += 3;
-        if (ClasicPiza >= 8) { document.getElementById("look").hide();}
+       
     };  
 
     document.getElementById("look2").onclick = function () {
