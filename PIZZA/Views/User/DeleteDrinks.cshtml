@@ -23,7 +23,7 @@
 @foreach (Drink drink in Model)
 {
     <div class="blokRemoval">
-        <img src="https://png.pngtree.com/element_our/20190531/ourlarge/pngtree-hot-drink-coffee-icon-illustration-image_1291527.jpg" class="BasketImgTovar" />
+        <img src="data:image/jpeg;base64,@(Convert.ToBase64String(drink.Img))" class="BasketImgTovar" />
         <b class="textBasket">@drink.Name</b>
         <b class="textBasket">@drink.Price</b>
         <button type="button" class="btn btn-primary DeleteBatton">Видалити страву</button>

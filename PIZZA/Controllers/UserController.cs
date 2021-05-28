@@ -92,32 +92,31 @@ namespace PIZZA.Controllers
             return View(await db.Pizza.ToListAsync());
         }
 
-        public IActionResult DeleteSushi()
+        public async Task<IActionResult> DeleteSushi()
         {
-            return View();
+            return View(await db.Sushi.ToListAsync());
         }
 
-        public IActionResult DeleteDrinks()
+        public async Task<IActionResult> DeleteDrinks()
         {
-            return View();
+            return View(await db.Drink.ToListAsync());
         }
 
-        public IActionResult EditPizza()
+
+        public async Task<IActionResult> EditPizza()
         {
-            return View();
+            return View(await db.Pizza.ToListAsync());
         }
-        public IActionResult EditSushi()
+        public async Task<IActionResult> EditSushi()
         {
-            return View();
+            return View(await db.Sushi.ToListAsync());
         }
-        public IActionResult EditDrinks()
+        public async Task<IActionResult> EditDrinks()
         {
-            return View();
+            return View(await db.Drink.ToListAsync());
         }
-        public IActionResult PizzaDesigner()
-        {
-            return View();
-        }
+
+
 
         public IActionResult PageEditPizza()
         {

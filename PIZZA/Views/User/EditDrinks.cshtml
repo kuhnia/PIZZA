@@ -19,30 +19,15 @@
 </div>
 
 
-
+@foreach (Drink drink in Model)
+{
 <div class="blokRemoval">
-    <img src="https://png.pngtree.com/element_our/20190531/ourlarge/pngtree-hot-drink-coffee-icon-illustration-image_1291527.jpg" class="BasketImgTovar" />
-    <b class="textBasket">Назва напою  </b>
-    <b class="textBasket">ціна</b>
-    <a asp-action="PageEditDrinks" asp-controller="User">
-        <button type="button" class="btn btn-primary DeleteBatton">Редагувати</button>
-        </a>
-</div>
-
-<div class="blokRemoval">
-    <img src="https://png.pngtree.com/element_our/20190531/ourlarge/pngtree-hot-drink-coffee-icon-illustration-image_1291527.jpg" class="BasketImgTovar" />
-    <b class="textBasket">Назва напою  </b>
-    <b class="textBasket">ціна</b>
+    <img src="data:image/jpeg;base64,@(Convert.ToBase64String(drink.Img))" class="BasketImgTovar" />
+    <b class="textBasket">@drink.Name</b>
+    <b class="textBasket">@drink.Price</b>
     <a asp-action="PageEditDrinks" asp-controller="User">
         <button type="button" class="btn btn-primary DeleteBatton">Редагувати</button>
     </a>
 </div>
+}
 
-<div class="blokRemoval">
-    <img src="https://png.pngtree.com/element_our/20190531/ourlarge/pngtree-hot-drink-coffee-icon-illustration-image_1291527.jpg" class="BasketImgTovar" />
-    <b class="textBasket">Назва напою  </b>
-    <b class="textBasket">ціна</b>
-    <a asp-action="PageEditDrinks" asp-controller="User">
-        <button type="button" class="btn btn-primary DeleteBatton">Редагувати</button>
-    </a>
-</div>
