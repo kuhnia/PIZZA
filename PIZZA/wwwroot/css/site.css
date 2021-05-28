@@ -567,7 +567,7 @@ span.psw {
   grid-auto-rows: 120px; }
   .blokRemoval .BasketImgTovar {
     overflow: hidden;
-    background-size: contain !important;
+    background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
     width: 80%;
