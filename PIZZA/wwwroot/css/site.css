@@ -239,7 +239,8 @@ h4 {
 .login-space .group .button {
   width: 100%;
   color: #fff;
-  display: block; }
+  display: block;
+  margin: auto; }
 
 .login-space .group .input,
 .login-space .group .button {
