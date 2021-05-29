@@ -141,38 +141,39 @@ namespace PIZZA.Controllers
         }
 
 
-        public async Task RemovePizzaFromCastAsync(string Id)
+        public async Task<RedirectToActionResult> RemovePizzaFromCast(string num)
         {
             //Do Something
             User user = db.GetUser(User.Identity.Name);
             Cast cast = new Cast();
             if (user.Cast != null)
                 cast = Cast.FromJson(user.Cast);
-            cast.Pizza.Remove(db.GetPizza(int.Parse(Id)));
+            cast.Pizza.Remove(db.GetPizza(int.Parse(num)));
+            user.Cast = cast.ToJson();
+            await db.SaveChangesAsync();
+            return RedirectToAction("Accaunt", "User");
+        }
+
+        public async Task RemoveDrinkFromCast(string num)
+        {
+            //Do Something
+            User user = db.GetUser(User.Identity.Name);
+            Cast cast = new Cast();
+            if (user.Cast != null)
+                cast = Cast.FromJson(user.Cast);
+            cast.Drink.Remove(db.GetDrink(int.Parse(num)));
             user.Cast = cast.ToJson();
             await db.SaveChangesAsync();
         }
 
-        public async Task RemoveDrinkFromCastAsync(string Id)
+        public async Task RemoveSushiFromCast(string num)
         {
             //Do Something
             User user = db.GetUser(User.Identity.Name);
             Cast cast = new Cast();
             if (user.Cast != null)
                 cast = Cast.FromJson(user.Cast);
-            cast.Drink.Remove(db.GetDrink(int.Parse(Id)));
-            user.Cast = cast.ToJson();
-            await db.SaveChangesAsync();
-        }
-
-        public async Task RemoveSushiFromCastAsync(string Id)
-        {
-            //Do Something
-            User user = db.GetUser(User.Identity.Name);
-            Cast cast = new Cast();
-            if (user.Cast != null)
-                cast = Cast.FromJson(user.Cast);
-            cast.Sushi.Remove(db.GetSushi(int.Parse(Id)));
+            cast.Sushi.Remove(db.GetSushi(int.Parse(num)));
             user.Cast = cast.ToJson();
             await db.SaveChangesAsync();
         }

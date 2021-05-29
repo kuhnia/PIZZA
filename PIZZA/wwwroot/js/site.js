@@ -85,26 +85,28 @@ loadData()
 
 
 function AddPizzaToCast(id) {
-    $.post("Home/AddPizzaToCast", {num: id})
+    $.post("Home/AddPizzaToCast", { num: id });
 }
 
 function AddDrinkToCast(id) {
-    $.post("Home/AddDrinkToCast", { num: id })
+    $.post("AddDrinkToCast", { num: id });
 }
 
 function AddSushiToCast(id) {
-    $.post("Home/AddSushiToCast", { num: id })
+    $.post("AddSushiToCast", { num: id });
 }
 
 function RemovePizzaFromCast(id) {
-    $.post("Home/RemovePizzaFromCast", { num: id })
+    $.post("../Home/RemovePizzaFromCast", { num: id });
 }
 
 function RemoveDrinkFromCast(id) {
-    $.post("Home/RemoveDrinkFromCast", { num: id })
+    $.post("RemoveDrinkFromCast", { num: id });
+    $.post("Accaunt");
 }
 
 function RemoveSushiFromCast(id) {
-    $.post("Home/RemoveSushiFromCast", { num: id })
+    $.post("RemoveSushiFromCast", { num: id });
+    $.post("Accaunt");
 }
 
