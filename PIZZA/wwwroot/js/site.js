@@ -38,19 +38,20 @@ $(function () {
     f.show();
     let b = $(".LoadMore");
     b.show();
-    let a = $(".DesignerComponent");
-    a.show();
 
     document.getElementById("look").onclick = function () {
         let f = $('.clasic > :nth-child(' + ClasicPiza + ') , .clasic > :nth-child(' + (ClasicPiza + 1) + ') , .clasic > :nth-child(' + (ClasicPiza + 2) +')');
         f.show();
+        if (ClasicPiza > 8) { alert("Продуктів даної категорії більше немає"); }
         ClasicPiza += 3;
+       
     };  
 
     document.getElementById("look2").onclick = function () {
         let f = $('.firm > :nth-child(' + FirmPiza + ') , .firm > :nth-child(' + (FirmPiza + 1) + ') , .firm > :nth-child(' + (FirmPiza+2) + ')');
         f.show();
         FirmPiza += 3;
+       
     };  
 
     document.getElementById("look3").onclick = function () {

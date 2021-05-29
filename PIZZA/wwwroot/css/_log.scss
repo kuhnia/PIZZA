@@ -74,7 +74,9 @@
 .login-space .group .button {
     width: 100%;
     color: #fff;
-    display: block
+    display: block;
+    margin:auto;
+    
 }
 
 .login-space .group .input,
@@ -82,7 +84,8 @@
     border: none;
     padding: 15px 20px;
     border-radius: 25px;
-    background: rgba(255, 255, 255, .1)
+    background: rgba(255, 255, 255, .1);
+
 }
 
 

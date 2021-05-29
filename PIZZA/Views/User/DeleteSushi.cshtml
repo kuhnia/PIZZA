@@ -18,30 +18,15 @@
     </div>
 </div>
 
-
-<div class="blokRemoval">
-    <img src="https://img.freepik.com/free-vector/cute-happy-sushi-roll-and-wasabi_92289-194.jpg?size=626&ext=jpg" class="BasketImgTovar" />
-    <b class="textBasket">Назва суші  </b>
-    <b class="textBasket">ціна</b>
-
-        <button type="button" class="btn btn-primary DeleteBatton">Видалити страву</button>
-
-</div>
-
-<div class="blokRemoval">
-    <img src="https://img.freepik.com/free-vector/cute-happy-sushi-roll-and-wasabi_92289-194.jpg?size=626&ext=jpg" class="BasketImgTovar" />
-    <b class="textBasket">Назва суші  </b>
-    <b class="textBasket">ціна</b>
+@foreach (Sushi sushi in Model)
+{
+    <div class="blokRemoval">
+        <img src="data:image/jpeg;base64,@(Convert.ToBase64String(sushi.Img))" class="BasketImgTovar" />
+        <b class="textBasket">@sushi.Name </b>
+        <b class="textBasket">@sushi.Price</b>
 
         <button type="button" class="btn btn-primary DeleteBatton">Видалити страву</button>
- 
-</div>
 
-<div class="blokRemoval">
-    <img src="https://img.freepik.com/free-vector/cute-happy-sushi-roll-and-wasabi_92289-194.jpg?size=626&ext=jpg" class="BasketImgTovar" />
-    <b class="textBasket">Назва суші  </b>
-    <b class="textBasket">ціна</b>
-
-        <button type="button" class="btn btn-primary DeleteBatton">Видалити страву</button>
-    
-</div>
+    </div>
+}
+   
