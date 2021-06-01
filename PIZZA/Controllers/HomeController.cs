@@ -31,8 +31,10 @@ namespace PIZZA.Controllers
             if (user.Cast != null)
                 cast= Cast.FromJson(user.Cast);
             cast.Pizza.Add(db.GetPizza(int.Parse(num)));
-            user.Cast = cast.ToJson();
-            await db.SaveChangesAsync();
+            string str = cast.ToJson();
+            user.Cast = "123";
+            db.User.Update(user);
+            db.SaveChanges();
             return View();
         }
 

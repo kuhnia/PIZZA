@@ -1,4 +1,5 @@
-﻿<head>
+﻿@model PIZZA.ViewModels.EditDrinksModel
+<head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
@@ -18,16 +19,16 @@
     </div>
 </div>
 
-
-@foreach (Drink drink in Model)
-{
-<div class="blokRemoval">
-    <img src="data:image/jpeg;base64,@(Convert.ToBase64String(drink.Img))" class="BasketImgTovar" />
-    <b class="textBasket">@drink.Name</b>
-    <b class="textBasket">@drink.Price</b>
-    <a asp-action="PageEditDrinks" asp-controller="User">
-        <button type="button" class="btn btn-primary DeleteBatton">Редагувати</button>
-    </a>
-</div>
-}
+<form asp-action="PageDrinksPizza" asp-controller="User" asp-antiforgery="true" method="get" enctype="multipart/form-data">
+    @foreach (Drink drink in Model.Drinks)
+    {
+        <div class="blokRemoval">
+            <img src="data:image/jpeg;base64,@(Convert.ToBase64String(drink.Img))" class="BasketImgTovar" />
+            <b class="textBasket">@drink.Name</b>
+            <b class="textBasket">@drink.Price</b>
+            <input type="text" asp-for="Id" value="@drink.Id" hidden />
+            <button type="submit" class="btn btn-primary DeleteBatton">Редагувати</button>
+        </div>
+    }
+</form>
 

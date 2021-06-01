@@ -17,10 +17,6 @@ namespace PIZZA.Models
         public double Weigth { get; set; }
         public double Price { get; set; }
 
-        public void AddToCast(ApplicationContext db)
-        {
-            //db.Cast.Add(new Cast(UserId = User.Identity.))
-        }
 
     }
 }
