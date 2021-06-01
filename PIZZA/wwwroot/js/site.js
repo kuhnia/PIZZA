@@ -32,6 +32,8 @@ var FirmPiza = 4;
 var SeeFoodPiza = 4;
 var VeganPiza = 4;
 
+
+
 $(function () {
     $(".row").children().hide();
     let f = $('.row > :nth-child(' + count + '), .row > :nth-child(' + (count + 1) + '), .row > :nth-child(' + (count + 2) + ')');
@@ -42,7 +44,7 @@ $(function () {
     document.getElementById("look").onclick = function () {
         let f = $('.clasic > :nth-child(' + ClasicPiza + ') , .clasic > :nth-child(' + (ClasicPiza + 1) + ') , .clasic > :nth-child(' + (ClasicPiza + 2) +')');
         f.show();
-        if (ClasicPiza > 8) { alert("Продуктів даної категорії більше немає"); }
+        if (ClasicPiza > 8) { $("#look").fadeOut("slow"); }
         ClasicPiza += 3;
        
     };  
@@ -50,6 +52,7 @@ $(function () {
     document.getElementById("look2").onclick = function () {
         let f = $('.firm > :nth-child(' + FirmPiza + ') , .firm > :nth-child(' + (FirmPiza + 1) + ') , .firm > :nth-child(' + (FirmPiza+2) + ')');
         f.show();
+        if (FirmPiza > 6) { $("#look2").fadeOut("slow"); }
         FirmPiza += 3;
        
     };  
@@ -57,12 +60,14 @@ $(function () {
     document.getElementById("look3").onclick = function () {
         let f = $('.seeFood > :nth-child(' + SeeFoodPiza + '), .seeFood > :nth-child(' + (SeeFoodPiza + 1) + ') , .seeFood > :nth-child(' + (SeeFoodPiza + 2) + ') ');
         f.show();
+        if (SeeFoodPiza > 6) { $("#look3").fadeOut("slow"); }
         SeeFoodPiza += 3;
     }; 
 
     document.getElementById("look4").onclick = function () {
         let f = $('.vegan > :nth-child(' + VeganPiza + ') , .vegan > :nth-child(' + (VeganPiza + 1) + '), .vegan > :nth-child(' + (VeganPiza + 2) + ')');
         f.show();
+        if (SeeFoodPiza > 4) { $("#look4").fadeOut("slow"); }
         VeganPiza += 3;
     };  
    
