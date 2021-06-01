@@ -1,4 +1,5 @@
-﻿<head>
+﻿@model PIZZA.ViewModels.EditSushiModel
+<head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
@@ -19,15 +20,14 @@
 </div>
 
 
-@foreach (Sushi sushi in Model)
+@foreach (Sushi sushi in Model.Sushi)
 {
-    <div class="blokRemoval">
-        <img src="data:image/jpeg;base64,@(Convert.ToBase64String(sushi.Img))" class="BasketImgTovar" />
-        <b class="textBasket">@sushi.Name </b>
-        <b class="textBasket">@sushi.Price</b>
-        <a asp-action="PageEditSushi" asp-controller="User">
-            <button type="button" class="btn btn-primary DeleteBatton">Редагувати</button>
-        </a>
+<div class="blokRemoval">
+    <img src="data:image/jpeg;base64,@(Convert.ToBase64String(sushi.Img))" class="BasketImgTovar" />
+    <b class="textBasket">@sushi.Name </b>
+    <b class="textBasket">@sushi.Price</b>
+    <input type="text" asp-for="Id" value="@sushi.Id" hidden />
+    <button type="submit" class="btn btn-primary DeleteBatton">Редагувати</button>
 </div>
 }
 

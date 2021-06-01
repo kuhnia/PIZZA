@@ -1,10 +1,11 @@
-﻿<head>
+﻿@model PIZZA.ViewModels.EditPizzaModel
+
+<head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
 
 <h2>Редагувати піцу</h2>
-
 <div id="blok1">
     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
         <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
@@ -19,15 +20,16 @@
 </div>
 
 
-@foreach (Pizza pizza in Model)
-{
-<div class="blokRemoval">
-    <img src='data:image/jpeg;base64,@(Convert.ToBase64String(pizza.Img))' alt="https://i.pinimg.com/originals/57/a4/d2/57a4d2fbcf28e3159a2ee14ac8982a86.png" class="BasketImgTovar" />
-    <b class="textBasket">@pizza.Name  </b>
-    <b class="textBasket">@pizza.Price</b>
-    <a asp-action="PageEditPizza" asp-controller="User">
-        <button type="button" class="btn btn-primary DeleteBatton">Редагувати</button>
-    </a>
-</div>
-}
+<form asp-action="PageEditPizza" asp-controller="User" asp-antiforgery="true" method="get" enctype="multipart/form-data">
+    @foreach (Pizza pizza in Model.Pizza)
+    {
+        <div class="blokRemoval">
+            <img src='data:image/jpeg;base64,@(Convert.ToBase64String(pizza.Img))' alt="https://i.pinimg.com/originals/57/a4/d2/57a4d2fbcf28e3159a2ee14ac8982a86.png" class="BasketImgTovar" />
+            <b class="textBasket">@pizza.Name  </b>
+            <b class="textBasket">@pizza.Price</b>
+                <input type="text" asp-for="Id" value="@pizza.Id" hidden />
+                <button type="submit" class="btn btn-primary DeleteBatton">Редагувати</button>
+        </div>
+    }
+</form>
 
