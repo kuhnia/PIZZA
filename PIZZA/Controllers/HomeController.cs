@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -22,9 +23,11 @@ namespace PIZZA.Controllers
         {
             db = context;
         }
-        
+
+        [Authorize]
         public async Task<ActionResult> AddPizzaToCast(string num)
         {
+            
             //Do Something
             User user = db.GetUser(User.Identity.Name);
             Cast cast = new Cast();
@@ -38,6 +41,7 @@ namespace PIZZA.Controllers
             return View();
         }
 
+        [Authorize]
         public async Task<ActionResult> AddDrinkToCast(string num)
         {
             //Do Something
@@ -51,6 +55,7 @@ namespace PIZZA.Controllers
             return View();
         }
 
+        [Authorize]
         public async Task<ActionResult> AddSushiToCast(string num)
         {
             //Do Something
@@ -142,7 +147,7 @@ namespace PIZZA.Controllers
             return View(model);
         }
 
-
+        [Authorize]
         public async Task<RedirectToActionResult> RemovePizzaFromCast(AccauntModel model)
         {
             //Do Something
@@ -156,7 +161,7 @@ namespace PIZZA.Controllers
             await db.SaveChangesAsync();
             return RedirectToAction("Accaunt", "User");
         }
-
+        [Authorize]
         public async Task<ViewResult> RemoveDrinkFromCast(AccauntModel model)
         {
             //Do Something
@@ -169,7 +174,7 @@ namespace PIZZA.Controllers
             await db.SaveChangesAsync();
             return View("../User/Accaunt");
         }
-
+        [Authorize]
         public async Task<ViewResult> RemoveSushiFromCast(AccauntModel model)
         {
             //Do Something
