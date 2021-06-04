@@ -32,7 +32,7 @@ namespace PIZZA.Controllers
                 cast= Cast.FromJson(user.Cast);
             cast.Pizza.Add(db.GetPizza(int.Parse(num)));
             string str = cast.ToJson();
-            user.Cast = "123";
+            user.Cast = str;
             db.User.Update(user);
             db.SaveChanges();
             return View();
@@ -143,41 +143,44 @@ namespace PIZZA.Controllers
         }
 
 
-        public async Task<RedirectToActionResult> RemovePizzaFromCast(string num)
+        public async Task<RedirectToActionResult> RemovePizzaFromCast(AccauntModel model)
         {
             //Do Something
             User user = db.GetUser(User.Identity.Name);
             Cast cast = new Cast();
             if (user.Cast != null)
                 cast = Cast.FromJson(user.Cast);
-            cast.Pizza.Remove(db.GetPizza(int.Parse(num)));
-            user.Cast = cast.ToJson();
+            //Pizza p = cast.Pizza.FirstOrDefault(c => c.Id == model.Id);
+            cast.Pizza.RemoveAll(r => r.Id == model.Id); ;
+            db.GetUser(User.Identity.Name).Cast = cast.ToJson();
             await db.SaveChangesAsync();
             return RedirectToAction("Accaunt", "User");
         }
 
-        public async Task RemoveDrinkFromCast(string num)
+        public async Task<ViewResult> RemoveDrinkFromCast(AccauntModel model)
         {
             //Do Something
             User user = db.GetUser(User.Identity.Name);
             Cast cast = new Cast();
             if (user.Cast != null)
                 cast = Cast.FromJson(user.Cast);
-            cast.Drink.Remove(db.GetDrink(int.Parse(num)));
+            cast.Drink.Remove(db.GetDrink(model.Id));
             user.Cast = cast.ToJson();
             await db.SaveChangesAsync();
+            return View("../User/Accaunt");
         }
 
-        public async Task RemoveSushiFromCast(string num)
+        public async Task<ViewResult> RemoveSushiFromCast(AccauntModel model)
         {
             //Do Something
             User user = db.GetUser(User.Identity.Name);
             Cast cast = new Cast();
             if (user.Cast != null)
                 cast = Cast.FromJson(user.Cast);
-            cast.Sushi.Remove(db.GetSushi(int.Parse(num)));
+            cast.Sushi.Remove(db.GetSushi(model.Id));
             user.Cast = cast.ToJson();
             await db.SaveChangesAsync();
+            return View("../User/Accaunt");
         }
     }
 }

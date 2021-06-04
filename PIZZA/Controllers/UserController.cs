@@ -28,7 +28,7 @@ namespace PIZZA.Controllers
         [Authorize]
         public async Task<IActionResult> Accaunt()
         {
-            return View(Cast.FromJson(db.GetUser(User.Identity.Name).Cast));
+            return View(new AccauntModel { Cast = Cast.FromJson(db.GetUser(User.Identity.Name).Cast), Id = -1 });
         }
         public IActionResult AddPizza()
         {
@@ -89,18 +89,42 @@ namespace PIZZA.Controllers
 
         public async Task<IActionResult> DeletePizza()
         {
-            return View(await db.Pizza.ToListAsync());
+            return View(new RemovePizzaModel { Pizza = db.Pizza, Id = -1 });
         }
 
         public async Task<IActionResult> DeleteSushi()
         {
-            return View(await db.Sushi.ToListAsync());
+            return View(new RemoveSushiModel { Sushi = db.Sushi, Id = -1 });
         }
 
         public async Task<IActionResult> DeleteDrinks()
         {
-            return View(await db.Drink.ToListAsync());
+            return View(new RemoveDrinksModel { Drinks = db.Drink, Id = -1 });
         }
+
+
+        [HttpPost]
+        public IActionResult DeletePizza(RemovePizzaModel model)
+        {
+            db.Pizza.Remove(db.Pizza.FirstOrDefault(p => p.Id == model.Id));
+            db.SaveChanges();
+            return View(new RemovePizzaModel { Pizza = db.Pizza, Id = -1 });
+        }
+        [HttpPost]
+        public IActionResult DeleteSushi(RemoveSushiModel model)
+        {
+            db.Sushi.Remove(db.Sushi.FirstOrDefault(p => p.Id == model.Id));
+            db.SaveChanges();
+            return View(new RemoveSushiModel { Sushi = db.Sushi, Id = -1 });
+        }
+        [HttpPost]
+        public IActionResult DeleteDrinks(RemoveDrinksModel model)
+        {
+            db.Drink.Remove(db.Drink.FirstOrDefault(p => p.Id == model.Id));
+            db.SaveChanges();
+            return View(new RemoveDrinksModel { Drinks = db.Drink, Id = -1 });
+        }
+
 
         [HttpGet]
         public async Task<IActionResult> EditPizza()

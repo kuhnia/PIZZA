@@ -1,4 +1,4 @@
-﻿@model Cast
+﻿@model PIZZA.ViewModels.AccauntModel
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container bootstrap snippets bootdey">
@@ -42,35 +42,52 @@
                         </div>
                     </div>
                 </div>
-                @foreach (Pizza pizza in Model.Pizza)
+                @if (Model.Cast != null)
                 {
-                    <div class="bio-graph-heading">
-                        <img src="data:image/jpeg;base64,@(Convert.ToBase64String(pizza.Img))" class="BasketImgTovar" />
-                        <b class="textBasket">@pizza.Name </b>
-                        <b class="textBasket">@pizza.Price</b>
-                        <img src="~/image/cancel.png" class="cencel" onclick="RemovePizzaFromCast(@pizza.Id)" />
-                    </div>
+                @foreach (Pizza pizza in Model.Cast.Pizza)
+                {
+                    <form asp-action="RemovePizzaFromCast" asp-controller="Home" asp-antiforgery="true" method="post" enctype="multipart/form-data">
+                        <div class="bio-graph-heading">
+                            <img src="data:image/jpeg;base64,@(Convert.ToBase64String(pizza.Img))" class="BasketImgTovar" />
+                            <b class="textBasket">@pizza.Name </b>
+                            <b class="textBasket">@pizza.Price</b>
+                            <input type="text" asp-for="Id" value="@pizza.Id" hidden />
+                            <button type="submit">
+                                <img src="~/image/cancel.png" class="cencel" />
+                            </button>
+                        </div>
+                    </form>
+                }}
+                @foreach (Drink drink in Model.Cast.Drink)
+                {
+                    <form asp-action="RemoveDrinkFromCast" asp-controller="Home" asp-antiforgery="true" method="post" enctype="multipart/form-data">
+                        <div class="bio-graph-heading">
+                            <img src="data:image/jpeg;base64,@(Convert.ToBase64String(drink.Img))" class="BasketImgTovar" />
+                            <b class="textBasket">@drink.Name </b>
+                            <b class="textBasket">@drink.Price</b>
+                            <input type="text" asp-for="Id" value="@drink.Id" hidden />
+                            <button type="submit">
+                                <img src="~/image/cancel.png" class="cencel" />
+                            </button>
+                        </div>
+                    </form>
                 }
-                @foreach (Drink drink in Model.Drink)
+                @foreach (Sushi sushi in Model.Cast.Sushi)
                 {
-                    <div class="bio-graph-heading">
-                        <img src="data:image/jpeg;base64,@(Convert.ToBase64String(drink.Img))" class="BasketImgTovar" />
-                        <b class="textBasket">@drink.Name </b>
-                        <b class="textBasket">@drink.Price</b>
-                        <img src="~/image/cancel.png" class="cencel" onclick="RemoveDrinkFromCast(@drink.Id)" />
-                    </div>
-                }
-                @foreach (Sushi sushi in Model.Sushi)
-                {
-                    <div class="bio-graph-heading">
-                        <img src="data:image/jpeg;base64,@(Convert.ToBase64String(sushi.Img))" class="BasketImgTovar" />
-                        <b class="textBasket">@sushi.Name </b>
-                        <b class="textBasket">@sushi.Price</b>
-                        <img src="~/image/cancel.png" class="cencel" onclick="RemoveSushiFromCast(@sushi.Id)" />
-                    </div>
+                    <form asp-action="RemoveSushiFromCast" asp-controller="Home" asp-antiforgery="true" method="post" enctype="multipart/form-data">
+                        <div class="bio-graph-heading">
+                            <img src="data:image/jpeg;base64,@(Convert.ToBase64String(sushi.Img))" class="BasketImgTovar" />
+                            <b class="textBasket">@sushi.Name </b>
+                            <b class="textBasket">@sushi.Price</b>
+                            <input type="text" asp-for="Id" value="@sushi.Id" hidden />
+                            <button type="submit">
+                                <img src="~/image/cancel.png" class="cencel" />
+                            </button>
+                        </div>
+                    </form>
                 }
 
-            <button type="button" class="btn btn-outline-success buy">Купити</button>
+                <button type="button" class="btn btn-outline-success buy">Купити</button>
             </div>
 
         </div>

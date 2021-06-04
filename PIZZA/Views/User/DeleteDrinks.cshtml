@@ -1,4 +1,4 @@
-﻿@model List<Drink>
+﻿@model PIZZA.ViewModels.RemoveDrinksModel
 
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -20,14 +20,17 @@
     </div>
 </div>
 
-@foreach (Drink drink in Model)
+@foreach (Drink drink in Model.Drinks)
 {
-    <div class="blokRemoval">
-        <img src="data:image/jpeg;base64,@(Convert.ToBase64String(drink.Img))" class="BasketImgTovar" />
-        <b class="textBasket">@drink.Name</b>
-        <b class="textBasket">@drink.Price</b>
-        <button type="button" class="btn btn-primary DeleteBatton">Видалити страву</button>
-    </div>
+    <form asp-action="DeleteDrinks" asp-controller="User" asp-antiforgery="true" method="post" enctype="multipart/form-data">
+        <div class="blokRemoval">
+            <img src="data:image/jpeg;base64,@(Convert.ToBase64String(drink.Img))" class="BasketImgTovar" />
+            <b class="textBasket">@drink.Name</b>
+            <b class="textBasket">@drink.Price</b>
+            <input type="text" asp-for="Id" value="@drink.Id" hidden />
+            <button type="submit" class="btn btn-primary DeleteBatton">Видалити страву</button>
+        </div>
+    </form>
 }
 
 
