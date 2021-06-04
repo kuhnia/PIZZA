@@ -1,6 +1,6 @@
 ﻿@import url("https://fonts.googleapis.com/css?family=Mukta");
 .section {
-  z-index: 0;
+  z-index: -1;
   height: 100%;
   position: fixed;
   width: 100%;
@@ -139,7 +139,7 @@ h4 {
   text-align: center;
   font-style: italic;
   margin-top: 40px;
-  z-index: 9; }
+  text-shadow: 1px 1px 2px black, 0 0 1em white; }
 
 .LoadMore {
   padding: 2rem 4rem;
@@ -435,6 +435,12 @@ a {
 .buy {
   margin-left: 45%; }
 
+.close {
+  background-color: rgba(236, 227, 197, 0); }
+  .close:hover, .close:active, .close:focus {
+    outline: none;
+    border: none; }
+
 .contentBox {
   width: 40%;
   padding: 12px 20px;
@@ -542,7 +548,8 @@ span.psw {
   margin: 3%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 120px; }
+  grid-auto-rows: 120px;
+  z-index: 9; }
   .blokRemoval .BasketImgTovar {
     overflow: hidden;
     background-size: cover !important;

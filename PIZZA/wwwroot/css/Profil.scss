@@ -158,4 +158,10 @@
 .buy{
     margin-left:45%;
 }
-
+.close {
+    background-color: rgba(#ECE3C5,0);
+    &:hover,&:active,&:focus{
+        outline:none;
+        border:none;
+    }
+}
