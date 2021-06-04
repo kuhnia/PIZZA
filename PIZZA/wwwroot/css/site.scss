@@ -1,5 +1,19 @@
-﻿html{
+﻿
+
+.section {
+    z-index:0;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    background-image: url("../image/mainBG.jpg");
+}
+
+
+html{
   /*  overflow-y: hidden;*/
+}
+body {
+   
 }
 a {
     text-decoration: none !important;
@@ -46,7 +60,7 @@ a.nav-link{
     right: 0;
     z-index: 999;
     overflow: visible;
-    background: #fbfbfb url('https://i.gifer.com/7VA.gif') no-repeat center center;
+    background: #fbfbfb url('https://i.gifer.com/ZN2j.gif') no-repeat center center;
     background-color: #cab014;
 }
 

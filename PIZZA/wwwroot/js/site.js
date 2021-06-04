@@ -33,7 +33,6 @@ var SeeFoodPiza = 4;
 var VeganPiza = 4;
 
 
-
 $(function () {
     $(".row").children().hide();
     let f = $('.row > :nth-child(' + count + '), .row > :nth-child(' + (count + 1) + '), .row > :nth-child(' + (count + 2) + ')');
@@ -67,7 +66,7 @@ $(function () {
     document.getElementById("look4").onclick = function () {
         let f = $('.vegan > :nth-child(' + VeganPiza + ') , .vegan > :nth-child(' + (VeganPiza + 1) + '), .vegan > :nth-child(' + (VeganPiza + 2) + ')');
         f.show();
-        if (SeeFoodPiza > 4) { $("#look4").fadeOut("slow"); }
+        if (VeganPiza > 4) { $("#look4").fadeOut("slow"); }
         VeganPiza += 3;
     };  
    
