@@ -22,12 +22,14 @@
 
 @foreach (Sushi sushi in Model.Sushi)
 {
-<div class="blokRemoval">
-    <img src="data:image/jpeg;base64,@(Convert.ToBase64String(sushi.Img))" class="BasketImgTovar" />
-    <b class="textBasket">@sushi.Name </b>
-    <b class="textBasket">@sushi.Price</b>
-    <input type="text" asp-for="Id" value="@sushi.Id" hidden />
-    <button type="submit" class="btn btn-primary DeleteBatton">Редагувати</button>
-</div>
-}
+    <form asp-action="PageEditSushi" asp-controller="User" asp-antiforgery="true" method="get" enctype="multipart/form-data">
+        <div class="blokRemoval">
+            <img src="data:image/jpeg;base64,@(Convert.ToBase64String(sushi.Img))" class="BasketImgTovar" />
+            <b class="textBasket">@sushi.Name </b>
+            <b class="textBasket">@sushi.Price</b>
+            <input type="text" asp-for="Id" value="@sushi.Id" hidden />
+            <button type="submit" class="btn btn-primary DeleteBatton">Редагувати</button>
+        </div>
+        </form>
+        }
 

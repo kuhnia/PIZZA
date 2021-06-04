@@ -19,16 +19,17 @@
     </div>
 </div>
 
+
+@foreach (Drink drink in Model.Drinks)
+{
 <form asp-action="PageEditDrinks" asp-controller="User" asp-antiforgery="true" method="get" enctype="multipart/form-data">
-    @foreach (Drink drink in Model.Drinks)
-    {
-        <div class="blokRemoval">
-            <img src="data:image/jpeg;base64,@(Convert.ToBase64String(drink.Img))" class="BasketImgTovar" />
-            <b class="textBasket">@drink.Name</b>
-            <b class="textBasket">@drink.Price</b>
-            <input type="text" asp-for="Id" value="@drink.Id" hidden />
-            <button type="submit" class="btn btn-primary DeleteBatton">Редагувати</button>
-        </div>
-    }
+    <div class="blokRemoval">
+        <img src="data:image/jpeg;base64,@(Convert.ToBase64String(drink.Img))" class="BasketImgTovar" />
+        <b class="textBasket">@drink.Name</b>
+        <b class="textBasket">@drink.Price</b>
+        <input type="text" asp-for="Id" value="@drink.Id" hidden />
+        <button type="submit" class="btn btn-primary DeleteBatton">Редагувати</button>
+    </div>
 </form>
+        }
 
