@@ -9,6 +9,7 @@ using System.Text;
 using System.IO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 
 namespace PIZZA.Controllers
 {
