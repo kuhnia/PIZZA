@@ -155,37 +155,34 @@ namespace PIZZA.Controllers
             Cast cast = new Cast();
             if (user.Cast != null)
                 cast = Cast.FromJson(user.Cast);
-            //Pizza p = cast.Pizza.FirstOrDefault(c => c.Id == model.Id);
             cast.Pizza.RemoveAll(r => r.Id == model.Id); ;
             db.GetUser(User.Identity.Name).Cast = cast.ToJson();
             await db.SaveChangesAsync();
             return RedirectToAction("Accaunt", "User");
         }
         [Authorize]
-        public async Task<ViewResult> RemoveDrinkFromCast(AccauntModel model)
+        public async Task<RedirectToActionResult> RemoveDrinkFromCast(AccauntModel model)
         {
-            //Do Something
             User user = db.GetUser(User.Identity.Name);
             Cast cast = new Cast();
             if (user.Cast != null)
                 cast = Cast.FromJson(user.Cast);
-            cast.Drink.Remove(db.GetDrink(model.Id));
-            user.Cast = cast.ToJson();
+            cast.Drink.RemoveAll(r => r.Id == model.Id); ;
+            db.GetUser(User.Identity.Name).Cast = cast.ToJson();
             await db.SaveChangesAsync();
-            return View("../User/Accaunt");
+            return RedirectToAction("Accaunt", "User");
         }
         [Authorize]
-        public async Task<ViewResult> RemoveSushiFromCast(AccauntModel model)
+        public async Task<RedirectToActionResult> RemoveSushiFromCast(AccauntModel model)
         {
-            //Do Something
             User user = db.GetUser(User.Identity.Name);
             Cast cast = new Cast();
             if (user.Cast != null)
                 cast = Cast.FromJson(user.Cast);
-            cast.Sushi.Remove(db.GetSushi(model.Id));
-            user.Cast = cast.ToJson();
+            cast.Sushi.RemoveAll(r => r.Id == model.Id); ;
+            db.GetUser(User.Identity.Name).Cast = cast.ToJson();
             await db.SaveChangesAsync();
-            return View("../User/Accaunt");
+            return RedirectToAction("Accaunt", "User");
         }
     }
 }
