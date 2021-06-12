@@ -15,9 +15,12 @@
 
                 <ul class="nav nav-pills nav-stacked">
                     <li class="active"><a href="#"> <i class="fa fa-user"></i> Профіль</a></li>
+                    @if (Model.User.IsAdmin())
+                    {
                     <li><a asp-action="EditPizza" asp-controller="User"> <i class="fa fa-edit"></i> Редагувати страву</a></li>
                     <li><a asp-action="DeletePizza" asp-controller="User"> <i class="fa fa-edit"></i> Видалити страву</a></li>
                     <li><a asp-action="AddPizza" asp-controller="User"> <i class="fa fa-edit"></i> Добавити страву</a></li>
+                    }
                 </ul>
             </div>
         </div>
@@ -29,16 +32,10 @@
                     <h1>Bio Graph</h1>
                     <div class="row">
                         <div class="bio-row">
-                            <p><span>Ім'я </span>: Camila</p>
+                            <p><span>Login </span>: @Model.User.Email</p>
                         </div>
                         <div class="bio-row">
-                            <p><span>День народження</span>: 13 July 1983</p>
-                        </div>
-                        <div class="bio-row">
-                            <p><span>Email </span>: jsmith@flatlab.com</p>
-                        </div>
-                        <div class="bio-row">
-                            <p><span>Номер телефону </span>: 88 (02) 123456</p>
+                            <p><span>Номер телефону </span>: @Model.User.PhoneNumber</p>
                         </div>
                     </div>
                 </div>

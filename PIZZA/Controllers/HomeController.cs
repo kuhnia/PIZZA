@@ -27,12 +27,12 @@ namespace PIZZA.Controllers
         [Authorize]
         public async Task<ActionResult> AddPizzaToCast(string num)
         {
-            
+
             //Do Something
             User user = db.GetUser(User.Identity.Name);
             Cast cast = new Cast();
             if (user.Cast != null)
-                cast= Cast.FromJson(user.Cast);
+                cast = Cast.FromJson(user.Cast);
             cast.Pizza.Add(db.GetPizza(int.Parse(num)));
             string str = cast.ToJson();
             user.Cast = str;
@@ -98,28 +98,30 @@ namespace PIZZA.Controllers
         {
             if (ModelState.IsValid)
             {
-
-                User user = await db.User.FirstOrDefaultAsync(u => u.Email == model.Email && u.Password == model.Password);
+                User user = await db.User
+                    .Include(u => u.Role)
+                    .FirstOrDefaultAsync(u => u.Email == model.Email && u.Password == model.Password);
                 if (user != null)
                 {
-                    await Authenticate(model.Email); // аутентификация
+                    await Authenticate(user); // аутентификация
 
                     return RedirectToAction("Index", "Home");
                 }
-                ModelState.AddModelError("", "Неправильні логін, або пароль");
+                ModelState.AddModelError("", "Некорректные логин и(или) пароль");
             }
             return View(model);
         }
 
-        private async Task Authenticate(string userName)
+        private async Task Authenticate(User user)
         {
-            // создаем один claim
             var claims = new List<Claim>
             {
-                new Claim(ClaimsIdentity.DefaultNameClaimType, userName)
+                new Claim(ClaimsIdentity.DefaultNameClaimType, user.Email),
+                new Claim(ClaimsIdentity.DefaultRoleClaimType, user.Role?.Name)
             };
             // создаем объект ClaimsIdentity
-            ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
+            ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType,
+                ClaimsIdentity.DefaultRoleClaimType);
             // установка аутентификационных куки
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
         }
@@ -138,10 +140,16 @@ namespace PIZZA.Controllers
                 User user = await db.User.FirstOrDefaultAsync(u => u.Email == model.Email);
                 if (user == null)
                 {
-                    db.User.Add(new User { Email = model.Email, Password = model.Password, PhoneNumber = model.PhoneNumber });
+                    // добавляем пользователя в бд
+                    user = new User { Email = model.Email, Password = model.Password, PhoneNumber = model.PhoneNumber };
+                    Role userRole = await db.Roles.FirstOrDefaultAsync(r => r.Name == "user");
+                    if (userRole != null)
+                        user.Role = userRole;
+
+                    db.User.Add(user);
                     await db.SaveChangesAsync();
 
-                    await Authenticate(model.Email); // аутентификация
+                    await Authenticate(user); // аутентификация
 
                     return RedirectToAction("Index", "Home");
                 }
@@ -187,6 +195,13 @@ namespace PIZZA.Controllers
             db.GetUser(User.Identity.Name).Cast = cast.ToJson();
             await db.SaveChangesAsync();
             return RedirectToAction("Accaunt", "User");
+        }
+
+        [Authorize]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Login", "Home");
         }
     }
 }

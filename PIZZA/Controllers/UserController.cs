@@ -29,7 +29,7 @@ namespace PIZZA.Controllers
         [Authorize]
         public async Task<IActionResult> Accaunt()
         {
-            return View(new AccauntModel { Cast = Cast.FromJson(db.GetUser(User.Identity.Name).Cast), Id = -1 });
+            return View(new AccauntModel { Cast = Cast.FromJson(db.GetUser(User.Identity.Name).Cast), Id = -1, User = db.GetUser(User.Identity.Name) });
         }
         public IActionResult AddPizza()
         {
