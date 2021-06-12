@@ -50,8 +50,10 @@ namespace PIZZA.Controllers
             if (user.Cast != null)
                 cast = Cast.FromJson(user.Cast);
             cast.Drink.Add(db.GetDrink(int.Parse(num)));
-            user.Cast = cast.ToJson();
-            await db.SaveChangesAsync();
+            string str = cast.ToJson();
+            user.Cast = str;
+            db.User.Update(user);
+            db.SaveChanges();
             return View();
         }
 
@@ -64,8 +66,10 @@ namespace PIZZA.Controllers
             if (user.Cast != null)
                 cast = Cast.FromJson(user.Cast);
             cast.Sushi.Add(db.GetSushi(int.Parse(num)));
-            user.Cast = cast.ToJson();
-            await db.SaveChangesAsync();
+            string str = cast.ToJson();
+            user.Cast = str;
+            db.User.Update(user);
+            db.SaveChanges();
             return View();
         }
 

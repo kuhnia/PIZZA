@@ -7,12 +7,12 @@
 <h2>Редагувати суші</h2>
 
 
-<form asp-action="PageEditSushi" asp-controller="User" asp-antiforgery="true" method="post">
+<form asp-action="PageEditSushi" asp-controller="User" asp-antiforgery="true" method="post" enctype="multipart/form-data">
 
     <div class="block">
         <input value="@Model.Id" asp-for="Id" hidden />
         <label><b>Назва</b></label><br />
-        <input value="@Model.Name" class="contentBox" type="text" name="Fname">
+        <input value="@Model.Name" class="contentBox" type="text" asp-for="Name">
         <br />
         <label><b>Зображення</b></label><br />
         <div class="fileform">
@@ -22,13 +22,13 @@
         </div>
         <br />
         <label><b>Опис</b></label><br />
-        <input value="@Model.Description" class="contentBox" type="text" name="Sname">
+        <input value="@Model.Description" class="contentBox" type="text" asp-for="Description">
         <br />
         <label><b>Ціна</b></label><br />
-        <input value="@Model.Price" class="contentBox" type="text" name="Position">
+        <input value="@Model.Price" class="contentBox" type="text" asp-for="Price">
         <br />
         <label><b>Категорія</b></label><br />
-        <select class="contentBox" id="cars" name="kategory" form="carform">
+        <select class="contentBox" id="cars" asp-for="Category">
             <option value="set">Сети</option>
             <option value="rol">Роли</option>
         </select>

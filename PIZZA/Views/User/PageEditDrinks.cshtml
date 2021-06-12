@@ -8,7 +8,7 @@
 <h2>Редагувати напої</h2>
 
 
-<form asp-action="PageEditDrinks" asp-controller="User" asp-antiforgery="true" method="post">
+<form asp-action="PageEditDrinks" asp-controller="User" asp-antiforgery="true" method="post" enctype="multipart/form-data">
 
     <div class="block">
         <input value="@Model.Id" asp-for="Id" hidden />
