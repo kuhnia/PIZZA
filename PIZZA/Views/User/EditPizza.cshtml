@@ -27,7 +27,7 @@
         <div class="blokRemoval">
             <img src='data:image/jpeg;base64,@(Convert.ToBase64String(pizza.Img))' alt="https://i.pinimg.com/originals/57/a4/d2/57a4d2fbcf28e3159a2ee14ac8982a86.png" class="BasketImgTovar" />
             <b class="textBasket">@pizza.Name  </b>
-            <b class="textBasket">@pizza.Price</b>
+            <b class="textBasket">@pizza.Price грн</b>
             <input type="text" asp-for="Id" value="@pizza.Id" hidden />
             <button type="submit" class="btn btn-primary DeleteBatton">Редагувати</button>
         </div>
