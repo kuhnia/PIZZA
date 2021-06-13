@@ -8,6 +8,7 @@ namespace PIZZA.ViewModels
 {
     public class AccauntModel
     {
+        public User User { get; set; }
         public Cast Cast { get; set; }
         public int Id { get; set; }
     }

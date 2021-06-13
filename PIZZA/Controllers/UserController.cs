@@ -29,7 +29,7 @@ namespace PIZZA.Controllers
         [Authorize]
         public async Task<IActionResult> Accaunt()
         {
-            return View(new AccauntModel { Cast = Cast.FromJson(db.GetUser(User.Identity.Name).Cast), Id = -1 });
+            return View(new AccauntModel { Cast = Cast.FromJson(db.GetUser(User.Identity.Name).Cast), Id = -1, User = db.GetUser(User.Identity.Name) });
         }
         public IActionResult AddPizza()
         {
@@ -132,12 +132,34 @@ namespace PIZZA.Controllers
         {
             return View(new EditPizzaModel { Pizza = db.Pizza, Id = -1 });
         }
+        [HttpGet]
+        public async Task<IActionResult> EditDrinks()
+        {
+            return View(new EditDrinksModel { Drinks = db.Drink, Id = -1 });
+        }
+        [HttpGet]
+        public async Task<IActionResult> EditSushi()
+        {
+            return View(new EditSushiModel { Sushi = db.Sushi, Id = -1 });
+        }
 
         [HttpGet]
         public async Task<IActionResult> PageEditPizza(string Id)
         {
             Pizza pizza = db.GetPizza(int.Parse(Id));
             return View(new UpdatePizzaModel {Name = pizza.Name, Category = pizza.Category, Description = pizza.Description, Price = pizza.Price, Weight = pizza.Weigth, Id = pizza.Id});
+        }
+        [HttpGet]
+        public async Task<IActionResult> PageEditDrinks(string Id)
+        {
+            Drink drink = db.GetDrink(int.Parse(Id));
+            return View(new UpdateDrinksModel { Name = drink.Name, Category = drink.Category, Price = drink.Price, Id = drink.Id });
+        }
+        [HttpGet]
+        public async Task<IActionResult> PageEditSushi(string Id)
+        {
+            Sushi sushi = db.GetSushi(int.Parse(Id));
+            return View(new UpdateSushiModel { Name = sushi.Name, Category = sushi.Category, Description = sushi.Description, Price = sushi.Price, Id = sushi.Id });
         }
 
         [HttpPost]
@@ -154,20 +176,6 @@ namespace PIZZA.Controllers
             await db.SaveChangesAsync();
             return RedirectToAction("Index", "Home");
         }
-
-        [HttpGet]
-        public async Task<IActionResult> EditDrinks()
-        {
-            return View(new EditDrinksModel { Drinks = db.Drink, Id = -1 });
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> PageEditDrinks(string Id)
-        {
-            Drink drink = db.GetDrink(int.Parse(Id));
-            return View(new UpdateDrinksModel { Name = drink.Name, Category = drink.Category, Price = drink.Price, Id = drink.Id });
-        }
-
         [HttpPost]
         public async Task<IActionResult> PageEditDrinks(UpdateDrinksModel model)
         {
@@ -182,21 +190,6 @@ namespace PIZZA.Controllers
             await db.SaveChangesAsync();
             return RedirectToAction("Index", "Home");
         }
-
-
-        [HttpGet]
-        public async Task<IActionResult> EditSushi()
-        {
-            return View(new EditSushiModel { Sushi = db.Sushi, Id = -1 });
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> PageEditSushi(string Id)
-        {
-            Sushi sushi = db.GetSushi(int.Parse(Id));
-            return View(new UpdateSushiModel { Name = sushi.Name, Category = sushi.Category, Description = sushi.Description, Price = sushi.Price, Id = sushi.Id });
-        }
-
         [HttpPost]
         public async Task<IActionResult> PageEditSushi(UpdateSushiModel model)
         {
@@ -207,7 +200,7 @@ namespace PIZZA.Controllers
                 imageData = binaryReader.ReadBytes((int)model.Img.Length);
             }
             db.Sushi.Remove(db.GetSushi(model.Id));
-            db.Sushi.Add(new Sushi { Name = model.Name, Img = imageData, Description = model.Description, Price = model.Price, Category = model.Category,});
+            db.Sushi.Add(new Sushi { Name = model.Name, Img = imageData, Description = model.Description, Price = model.Price, Category = model.Category});
             await db.SaveChangesAsync();
             return RedirectToAction("Index", "Home");
         }
