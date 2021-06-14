@@ -17,11 +17,11 @@ namespace PIZZA.Controllers
 {
     public class HomeController : Controller
     {
-
         private ApplicationContext db;
         public HomeController(ApplicationContext context)
         {
             db = context;
+         
         }
 
         [Authorize]
@@ -76,6 +76,7 @@ namespace PIZZA.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await db.Pizza.ToListAsync());
+
         }
 
 
