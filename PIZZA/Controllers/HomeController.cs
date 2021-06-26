@@ -24,10 +24,16 @@ namespace PIZZA.Controllers
             db = context;
         }
 
-        [Authorize]
+        //[Authorize]
+        [HttpPost]
         public async Task<ActionResult> AddPizzaToCast(string num)
         {
-
+            if (User.Identity.Name == null)
+            {
+                //return RedirectToAction("Login");
+                //return RedirectToAction("Index", "Home");
+                return RedirectPermanent("~/Home/Login");
+            }
             //Do Something
             User user = db.GetUser(User.Identity.Name);
             Cast cast = new Cast();
@@ -162,13 +168,21 @@ namespace PIZZA.Controllers
         [Authorize]
         public async Task<RedirectToActionResult> RemovePizzaFromCast(AccauntModel model)
         {
+            if(model.Id == -1)
+            {
+                User u = db.GetUser(User.Identity.Name);
+                Cast c = new Cast();
+                db.GetUser(User.Identity.Name).Cast = c.ToJson();
+                await db.SaveChangesAsync();
+                return RedirectToAction("Accaunt", "User");
+            }
             //Do Something
             User user = db.GetUser(User.Identity.Name);
             Cast cast = new Cast();
             if (user.Cast != null)
                 cast = Cast.FromJson(user.Cast);
             cast.Pizza.RemoveAll(r => r.Id == model.Id); ;
-            db.GetUser(User.Identity.Name).Cast = cast.ToJson();
+            
             await db.SaveChangesAsync();
             return RedirectToAction("Accaunt", "User");
         }

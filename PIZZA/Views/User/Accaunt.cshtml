@@ -41,20 +41,20 @@
                 </div>
                 @if (Model.Cast != null)
                 {
-                @foreach (Pizza pizza in Model.Cast.Pizza)
-                {
-                    <form asp-action="RemovePizzaFromCast" asp-controller="Home" asp-antiforgery="true" method="post" enctype="multipart/form-data">
-                        <div class="bio-graph-heading">
-                            <img src="data:image/jpeg;base64,@(Convert.ToBase64String(pizza.Img))" class="BasketImgTovar" />
-                            <b class="textBasket">@pizza.Name </b>
-                            <b class="textBasket">@pizza.Price</b>
-                            <input type="text" asp-for="Id" value="@pizza.Id" hidden />
-                            <button type="submit" class="close">
-                                <img src="~/image/cancel.png" class="cencel" />
-                            </button>
-                        </div>
-                    </form>
-                }}
+                    @foreach (Pizza pizza in Model.Cast.Pizza)
+                    {
+                        <form asp-action="RemovePizzaFromCast" asp-controller="Home" asp-antiforgery="true" method="post" enctype="multipart/form-data">
+                            <div class="bio-graph-heading">
+                                <img src="data:image/jpeg;base64,@(Convert.ToBase64String(pizza.Img))" class="BasketImgTovar" />
+                                <b class="textBasket">@pizza.Name </b>
+                                <b class="textBasket">@pizza.Price</b>
+                                <input type="text" asp-for="Id" value="@pizza.Id" hidden />
+                                <button type="submit" class="close">
+                                    <img src="~/image/cancel.png" class="cencel" />
+                                </button>
+                            </div>
+                        </form>
+                    }}
                 @foreach (Drink drink in Model.Cast.Drink)
                 {
                     <form asp-action="RemoveDrinkFromCast" asp-controller="Home" asp-antiforgery="true" method="post" enctype="multipart/form-data">
@@ -84,7 +84,10 @@
                     </form>
                 }
 
-                <button type="button" class="btn btn-outline-success buy">Купити</button>
+                <form asp-action="RemovePizzaFromCast" asp-controller="Home" asp-antiforgery="true" method="post" enctype="multipart/form-data">
+                        <input type="text" asp-for="Id" value="@int.Parse("-1")" hidden />
+                            <button type="submit" onclick="alert('Покупку здійснено');" class="btn btn-outline-success buy">Купити</button>
+                </form>
             </div>
 
         </div>

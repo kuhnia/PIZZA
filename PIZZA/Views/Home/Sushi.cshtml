@@ -27,7 +27,16 @@
                 </div>
                 <b>@sushi.Name</b>
                 <p class="price">@sushi.Price грн</p>
-                <button class="button-1" onclick="AddSushiToCast(@sushi.Id);">В корзину</button>
+                @if (User.Identity.Name == null)
+                {
+                    <a asp-controller="Home" asp-action="Login">
+                        <button class="button-1">В корзину</button>
+                    </a>
+                }
+                else
+                {
+                    <button class="button-1" onclick="AddSushiToCast(@sushi.Id);">В корзину</button>
+                }
             </div>
         </div>
     }
@@ -59,7 +68,16 @@
                 </div>
                 <b>@sushi.Name</b>
                 <p class="price">@sushi.Price грн</p>
-                <button class="button-1" onclick="AddSushiToCast(@sushi.Id);">В корзину</button>
+                @if (User.Identity.Name == null)
+                {
+                    <a asp-controller="Home" asp-action="Login">
+                        <button class="button-1">В корзину</button>
+                    </a>
+                }
+                else
+                {
+                    <button class="button-1" onclick="AddSushiToCast(@sushi.Id);">В корзину</button>
+                }
             </div>
         </div>
     }

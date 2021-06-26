@@ -35,7 +35,16 @@
                 </div>
                 <b>@pizza.Name</b>
                 <p class="price">@pizza.Price.ToString()</p>
+                @if (User.Identity.Name == null)
+                {
+                    <a asp-controller="Home" asp-action="Login">
+                    <button class="button-1">В корзину</button>
+                    </a>
+                }
+                else
+                {
                 <button class="button-1" onclick="AddPizzaToCast(@pizza.Id);">В корзину</button>
+                }
             </div>
         </div>
     }
@@ -66,7 +75,16 @@
                 </div>
                 <b>@pizza.Name</b>
                 <p class="price">@pizza.Price.ToString()</p>
-                <button class="button-1">В корзину</button>
+                @if (User.Identity.Name == null)
+                {
+                    <a asp-controller="Home" asp-action="Login">
+                        <button class="button-1">В корзину</button>
+                    </a>
+                }
+                else
+                {
+                    <button class="button-1" onclick="AddPizzaToCast(@pizza.Id);">В корзину</button>
+                }
             </div>
         </div>
     }
@@ -96,7 +114,16 @@
                 </div>
                 <b>@pizza.Name</b>
                 <p class="price">@pizza.Price.ToString()</p>
-                <button class="button-1">В корзину</button>
+                @if (User.Identity.Name == null)
+                {
+                    <a asp-controller="Home" asp-action="Login">
+                        <button class="button-1">В корзину</button>
+                    </a>
+                }
+                else
+                {
+                    <button class="button-1" onclick="AddPizzaToCast(@pizza.Id);">В корзину</button>
+                }
             </div>
         </div>
     }
@@ -128,7 +155,16 @@
                 </div>
                 <b>@pizza.Name</b>
                 <p class="price">@pizza.Price.ToString()</p>
-                <button class="button-1">В корзину</button>
+                @if (User.Identity.Name == null)
+                {
+                    <a asp-controller="Home" asp-action="Login">
+                        <button class="button-1">В корзину</button>
+                    </a>
+                }
+                else
+                {
+                    <button class="button-1" onclick="AddPizzaToCast(@pizza.Id);">В корзину</button>
+                }
             </div>
         </div>
     }
