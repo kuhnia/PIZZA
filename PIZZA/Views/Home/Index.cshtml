@@ -7,6 +7,12 @@
 
 @*@{ var userName = User.Identity. }*@
 
+@*<h1>@ViewBag.count</h1>
+@if (ViewBag.count)
+{
+    
+    ViewBag.count = false;
+}*@
 
 <div id="preloader" class="visible"></div>
 
@@ -155,16 +161,7 @@
                 </div>
                 <b>@pizza.Name</b>
                 <p class="price">@pizza.Price.ToString()</p>
-                @if (User.Identity.Name == null)
-                {
-                    <a asp-controller="Home" asp-action="Login">
-                        <button class="button-1">В корзину</button>
-                    </a>
-                }
-                else
-                {
-                    <button class="button-1" onclick="AddPizzaToCast(@pizza.Id);">В корзину</button>
-                }
+                <button class="button-1">В корзину</button>
             </div>
         </div>
     }
